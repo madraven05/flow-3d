@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed flex gap-5 top-0 right-0 h-14 py-3 px-10 font-mulish text-xl font-extrabold uppercase">
+    <div className="fixed flex gap-5 top-0 right-0 py-3 px-10 font-mulish text-xl font-extrabold uppercase">
       {navbarItems.map((item) => (
         <a href={item.link}>{item.title}</a>
       ))}

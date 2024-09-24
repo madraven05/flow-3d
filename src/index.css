@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 body {
+  @apply text-gray-700
 }
 
 p {
@@ -13,4 +14,18 @@ p {
 
 h1, h2, h3 {
   @apply font-mulish;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+
+h2 {
+  @apply text-2xl;
+}
+
+
+h3 {
+  @apply text-xl;
 }
