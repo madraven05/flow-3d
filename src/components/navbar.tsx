@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const navbarItems = [
     {
-      id: "blog",
-      title: "Blog",
+      id: "home",
+      title: "Home",
       link: "/",
+    },
+    {
+      id: "flow-3d",
+      title: "Flow3D",
+      link: "/flow-3d",
     },
     {
       id: "about",
@@ -16,9 +21,9 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed flex gap-5 top-0 right-0 py-3 px-10 font-mulish text-xl font-extrabold uppercase">
+    <div className="fixed top-0 right-0 z-20 bg-yellow-50 flex gap-10 w-full py-3 px-10 font-mulish text-xl font-semibold uppercase">
       {navbarItems.map((item) => (
-        <a href={item.link}>{item.title}</a>
+        <a className="hover:-translate-y-0.5 font-semibold hover:font-extrabold transition duration-300 ease-in-out" href={item.link}>{item.title}</a>
       ))}
     </div>
   );
