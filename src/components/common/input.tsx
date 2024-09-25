@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, ReactNode } from "react";
+import React, { HTMLAttributes, InputHTMLAttributes, ReactNode } from "react";
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
 }
 const Input: React.FC<InputProps> = (props) => {
@@ -8,7 +8,7 @@ const Input: React.FC<InputProps> = (props) => {
   return (
     <div className="flex">
       <div className="relative">{icon}</div>
-      <input className="p-2 bg-black/10 backdrop-blur-lg rounded-md shadow-inner" {...props} />
+      <input className="p-2 w-full bg-black/10 text-xs font-space-mono backdrop-blur-lg rounded-md shadow-inner transition duration-300 ease-in-out" {...props} />
     </div>
   );
 };

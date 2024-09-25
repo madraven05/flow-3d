@@ -1,13 +1,15 @@
 import { FaImage, FaSave, FaUpload } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
-import { BiHelpCircle } from "react-icons/bi";
-import { MdDelete } from "react-icons/md";
+import { BiHelpCircle, BiServer } from "react-icons/bi";
+import { MdCheckBox, MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
 import MenuButton from "./common/menu-button";
-import Input from "./common/input";
-import { CgClose } from "react-icons/cg";
-import { IoClose, IoMenuOutline } from "react-icons/io5";
+import { IoClose, IoMenuOutline, IoRemoveOutline } from "react-icons/io5";
 import { useState } from "react";
+import ComponentCard from "./common/component-card";
+import { BsDatabase } from "react-icons/bs";
+import Input from "./common/input";
+import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
 const MenuManager = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -31,7 +33,9 @@ const MenuManager = () => {
         <IoMenuOutline />
       </MenuButton>
       <div
-        className={`${openMenu ? 'translate-x-0' : '-translate-x-full opacity-0'} z-10 transition duration-300 ease-in-out bottom-10 left-0 w-80 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-5  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
+        className={`${
+          openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
+        } z-10 transition duration-300 ease-in-out bottom-10 left-0 w-60 lg:w-72 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-3  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
@@ -39,14 +43,45 @@ const MenuManager = () => {
         >
           <IoClose />
         </MenuButton>
-        <h2 className="uppercase font-semibold -mt-4">Nodes</h2>
+
+        {/* Nodes */}
+        <h3 className="uppercase font-semibold -mt-4">Nodes</h3>
+        <HorizontalLine/>
+        <Input placeholder="Search"/>
         <div className="flex flex-wrap gap-5 justify-center">
-          <div className="w-28 h-28 shadow-md hover:-translate-y-0.5 transition duration-300 ease-in-out hover:cursor-pointer" />
-          <div className="w-28 h-28 shadow-md hover:-translate-y-0.5 transition duration-300 ease-in-out hover:cursor-pointer" />
-          <div className="w-28 h-28 shadow-md hover:-translate-y-0.5 transition duration-300 ease-in-out hover:cursor-pointer" />
+          <ComponentCard componentId="curved-box">
+            <MdCheckBoxOutlineBlank className="text-4xl"/>
+            <p className="text-xs">Curved Box</p>
+          </ComponentCard>
+          <ComponentCard componentId="curved-box">
+            <BsDatabase className="text-4xl"/>
+            <p className="text-xs">Database</p>
+          </ComponentCard>
+          <ComponentCard componentId="curved-box">
+            <BiServer className="text-4xl"/>
+            <p className="text-xs">Server</p>
+          </ComponentCard>
         </div>
         <HorizontalLine />
-        <div className="text-lg flex flex-col gap-3">
+
+        {/* Edges */}
+        <h3 className="uppercase font-semibold">Edges</h3>
+        <HorizontalLine/>
+        <Input placeholder="Search"/>
+        <div className="flex flex-wrap gap-5 items-center justify-center">
+          <ComponentCard componentId="curved-box">
+            <IoRemoveOutline className="text-4xl"/>
+            <p className="text-xs">Line</p>
+          </ComponentCard>
+          <ComponentCard componentId="curved-box">
+            <LiaLongArrowAltRightSolid className="text-4xl"/>
+            <p className="text-xs text-center">Straight Arrow</p>
+          </ComponentCard>
+        </div>
+        <HorizontalLine/>
+
+        {/* File menu */}
+        <div className="text-base flex flex-col gap-3">
           <MenuButton>
             <FaSave />
             <p>Save</p>
@@ -65,7 +100,9 @@ const MenuManager = () => {
           </MenuButton>
         </div>
         <HorizontalLine />
-        <div className="text-lg flex flex-col gap-3">
+
+        {/* Canvas Menu */}
+        <div className="text-base flex flex-col gap-3">
           <MenuButton>
             <BiHelpCircle />
             <p>Need Help?</p>
