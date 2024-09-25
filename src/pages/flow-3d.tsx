@@ -3,9 +3,13 @@ import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
 import { useAppSelector } from "../components/hooks/use-app-dispatch";
 import { Canvas } from "@react-three/fiber";
-import { Box, OrbitControls, Plane } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
+import {
+  ComponentKey,
+  componentsDict,
+} from "../components/three/components-dir";
 
-const Flow3D = () => {
+const Flow3D:React.FC = () => {
   const sceneData = useAppSelector((state) => state.scene);
 
   return (
@@ -15,8 +19,21 @@ const Flow3D = () => {
       <div className="z-0 w-full shadow-md">
         {sceneData.metadata.id ? (
           <Canvas>
-            <Box/>
-            <OrbitControls/>
+            <ambientLight />
+            <directionalLight position={[1, 1, 1]} />
+            {sceneData.nodes.map((node) => {
+              const componentId = node.componentId;
+              const SceneNode = componentsDict[componentId as ComponentKey];
+              return (
+                <SceneNode
+                  position={node.position}
+                  color={node.color}
+                  rotation={node.rotation}
+                  scale={node.scale}
+                />
+              );
+            })}
+            <OrbitControls />
           </Canvas>
         ) : null}
       </div>
