@@ -26,12 +26,12 @@ const MenuManager = () => {
         onClick={handleOpenMenu}
         className={`${
           openMenu ? "hidden" : ""
-        } fixed p-2 top-20 left-10 text-3xl text-gray-500 rounded-full bg-yellow-800/10`}
+        } z-10 fixed p-2 top-20 left-10 text-3xl text-gray-500 rounded-full bg-yellow-800/10`}
       >
         <IoMenuOutline />
       </MenuButton>
       <div
-        className={`${openMenu ? 'translate-x-0' : '-translate-x-full opacity-0'} transition duration-300 ease-in-out bottom-10 left-0 w-80 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-5  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
+        className={`${openMenu ? 'translate-x-0' : '-translate-x-full opacity-0'} z-10 transition duration-300 ease-in-out bottom-10 left-0 w-80 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-5  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
