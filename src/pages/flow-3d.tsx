@@ -3,13 +3,14 @@ import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
 import { useAppSelector } from "../components/hooks/use-app-dispatch";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, OrthographicCamera, Plane } from "@react-three/drei";
 import {
   ComponentKey,
   componentsDict,
 } from "../components/three/components-dir";
+import { MeshPhongMaterial } from "three";
 
-const Flow3D:React.FC = () => {
+const Flow3D: React.FC = () => {
   const sceneData = useAppSelector((state) => state.scene);
 
   return (
@@ -18,9 +19,23 @@ const Flow3D:React.FC = () => {
       <MenuManager />
       <div className="z-0 w-full shadow-md">
         {sceneData.metadata.id ? (
-          <Canvas>
+          <Canvas shadows>
+            <OrthographicCamera
+              makeDefault
+              position={[10, 10, 10]}
+              zoom={50}
+              near={0.1}
+              far={1000}
+            />
             <ambientLight />
-            <directionalLight position={[1, 1, 1]} />
+            <directionalLight position={[-10, 10, 10]} />
+            <Plane
+              material={new MeshPhongMaterial({ color: "white" })}
+              receiveShadow
+              position={[0, -0.5, 0]}
+              args={[20, 25]}
+              rotation={[-Math.PI / 2, 0, 0]}
+            />
             {sceneData.nodes.map((node) => {
               const componentId = node.componentId;
               const SceneNode = componentsDict[componentId as ComponentKey];

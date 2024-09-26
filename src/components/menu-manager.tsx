@@ -35,7 +35,7 @@ const MenuManager = () => {
       <div
         className={`${
           openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
-        } z-10 transition duration-300 ease-in-out bottom-10 left-0 w-60 lg:w-72 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-3  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
+        } z-10 transition duration-300 ease-in-out bottom-10 left-0 w-60 lg:w-72 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-3 backdrop-blur-xl  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
