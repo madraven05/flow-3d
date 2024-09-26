@@ -9,6 +9,7 @@ import {
   componentsDict,
 } from "../components/three/components-dir";
 import { MeshPhongMaterial } from "three";
+import EditComponentMenu from "../components/edit-component-menu";
 
 const Flow3D: React.FC = () => {
   const sceneData = useAppSelector((state) => state.scene);
@@ -17,6 +18,7 @@ const Flow3D: React.FC = () => {
     <div className="mt-10 pt-5 min-h-screen w-full flex gap-2">
       <TopMenuTray />
       <MenuManager />
+      <EditComponentMenu />
       <div className="z-0 w-full shadow-md">
         {sceneData.metadata.id ? (
           <Canvas shadows>
@@ -41,6 +43,8 @@ const Flow3D: React.FC = () => {
               const SceneNode = componentsDict[componentId as ComponentKey];
               return (
                 <SceneNode
+                  componentId={node.componentId}
+                  guuid={node.guuid}
                   position={node.position}
                   color={node.color}
                   rotation={node.rotation}

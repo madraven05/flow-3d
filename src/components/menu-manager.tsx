@@ -2,7 +2,7 @@ import { FaImage, FaSave, FaUpload } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle, BiServer } from "react-icons/bi";
-import { MdCheckBox, MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
+import { MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
 import MenuButton from "./common/menu-button";
 import { IoClose, IoMenuOutline, IoRemoveOutline } from "react-icons/io5";
 import { useState } from "react";
@@ -28,37 +28,37 @@ const MenuManager = () => {
         onClick={handleOpenMenu}
         className={`${
           openMenu ? "hidden" : ""
-        } z-10 fixed p-2 top-20 left-10 text-3xl text-gray-500 rounded-full bg-yellow-800/10`}
+        } z-10 fixed p-2 top-20 left-10 text-3xl text-gray-500 rounded-full bg-orange-800/10`}
       >
         <IoMenuOutline />
       </MenuButton>
       <div
         className={`${
           openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
-        } z-10 transition duration-300 ease-in-out bottom-10 left-0 w-60 lg:w-72 fixed top-20 overflow-auto lg:top-20 flex flex-col  gap-3 backdrop-blur-xl  py-10 px-6 shadow-lg bg-yellow-100/50 rounded-md`}
+        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-20 bottom-20 overflow-auto lg:top-20 flex flex-col  gap-3 backdrop-blur-xl  py-10 px-6 shadow-lg bg-orange-100/50 rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
-          className="absolute right-5 top-5 text-xl text-gray-500 rounded-full bg-yellow-800/10 backdrop-blur-md p-2"
+          className="fixed right-5 top-5 text-xl text-gray-500 rounded-full bg-orange-800/10 backdrop-blur-md p-2"
         >
           <IoClose />
         </MenuButton>
 
         {/* Nodes */}
         <h3 className="uppercase font-semibold -mt-4">Nodes</h3>
-        <HorizontalLine/>
-        <Input placeholder="Search"/>
+        <HorizontalLine />
+        <Input placeholder="Search" />
         <div className="flex flex-wrap gap-5 justify-center">
           <ComponentCard componentId="curved-box">
-            <MdCheckBoxOutlineBlank className="text-4xl"/>
+            <MdCheckBoxOutlineBlank className="text-4xl" />
             <p className="text-xs">Curved Box</p>
           </ComponentCard>
           <ComponentCard componentId="curved-box">
-            <BsDatabase className="text-4xl"/>
+            <BsDatabase className="text-4xl" />
             <p className="text-xs">Database</p>
           </ComponentCard>
           <ComponentCard componentId="curved-box">
-            <BiServer className="text-4xl"/>
+            <BiServer className="text-4xl" />
             <p className="text-xs">Server</p>
           </ComponentCard>
         </div>
@@ -66,19 +66,19 @@ const MenuManager = () => {
 
         {/* Edges */}
         <h3 className="uppercase font-semibold">Edges</h3>
-        <HorizontalLine/>
-        <Input placeholder="Search"/>
+        <HorizontalLine />
+        <Input placeholder="Search" />
         <div className="flex flex-wrap gap-5 items-center justify-center">
           <ComponentCard componentId="curved-box">
-            <IoRemoveOutline className="text-4xl"/>
+            <IoRemoveOutline className="text-4xl" />
             <p className="text-xs">Line</p>
           </ComponentCard>
           <ComponentCard componentId="curved-box">
-            <LiaLongArrowAltRightSolid className="text-4xl"/>
+            <LiaLongArrowAltRightSolid className="text-4xl" />
             <p className="text-xs text-center">Straight Arrow</p>
           </ComponentCard>
         </div>
-        <HorizontalLine/>
+        <HorizontalLine />
 
         {/* File menu */}
         <div className="text-base flex flex-col gap-3">

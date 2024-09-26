@@ -9,7 +9,7 @@ import HomeScene from "../components/three/scenes/home-scene";
 
 const Home = () => {
   return (
-    <div className="mt-14 bg-yellow-100 p-5 h-screen flex flex-wrap justify-center items-center">
+    <div className="mt-14 bg-orange-100 p-5 h-screen flex flex-wrap justify-center items-center">
       {/* R3F Canvas */}
       <div className=" h-1/2 lg:h-full lg:w-1/2">
         <Canvas shadows>
