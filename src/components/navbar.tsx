@@ -21,7 +21,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed top-0 right-0 z-20 bg-yellow-50 flex gap-10 w-full py-3 px-10 font-mulish text-xl font-semibold uppercase">
+    <div className="fixed top-0 right-0 z-20 bg-orange-50 flex gap-10 w-full py-3 px-10 font-mulish text-xl font-semibold uppercase">
       {navbarItems.map((item) => (
         <a className="hover:-translate-y-0.5 font-semibold hover:font-extrabold transition duration-300 ease-in-out" href={item.link}>{item.title}</a>
       ))}

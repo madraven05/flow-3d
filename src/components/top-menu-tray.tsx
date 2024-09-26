@@ -36,7 +36,7 @@ const TopMenuTray: React.FC = () => {
   };
 
   return (
-    <div className="z-10 fixed top-20 left-1/2 transform hidden lg:-translate-x-1/2 backdrop-blur-xl h-10 w-1/2 bg-yellow-100/50 gap-3 text-xl rounded-full text-gray-600 lg:flex justify-around px-10 items-center">
+    <div className="z-10 fixed bottom-0 w-full rounded-none flex h-14 lg:top-20 lg:left-1/2 transform lg:-translate-x-1/2 backdrop-blur-xl lg:h-10 lg:w-1/2 bg-orange-100/50 gap-3 text-xl lg:rounded-full text-gray-600 lg:flex justify-around px-10 items-center">
       {/* create new scene */}
       <MenuButton
         disabled={isNewCanvasBtnDisabled}

@@ -1,13 +1,11 @@
 import { RoundedBox } from "@react-three/drei";
 import React from "react";
 import { MeshPhongMaterial } from "three";
+import withEditNodeMenu from "../../hocs/with-edit-node-menu";
+import { Node } from "../../models/node";
 
-interface CurvedBoxProps {
-  position?: [number, number, number];
-  rotation?: [number, number, number];
-  radius?: number,
-  scale?: [number, number, number];
-  color?: string;
+interface CurvedBoxProps extends Node {
+  radius?: number;
 }
 
 const CurvedBox: React.FC<CurvedBoxProps> = ({
@@ -16,16 +14,19 @@ const CurvedBox: React.FC<CurvedBoxProps> = ({
   scale = [1, 1, 1],
   radius = 0.2,
   color = "gray",
+  guuid,
 }) => {
   return (
-    <RoundedBox
-      material={new MeshPhongMaterial({ color: color })}
-      position={position}
-      rotation={rotation}
-      scale={scale}
-      radius={radius}
-    />
+    <group key={guuid}>
+      <RoundedBox
+        material={new MeshPhongMaterial({ color: color })}
+        position={position}
+        rotation={rotation}
+        scale={scale}
+        radius={radius}
+      />
+    </group>
   );
 };
 
-export default CurvedBox;
+export default withEditNodeMenu(CurvedBox);
