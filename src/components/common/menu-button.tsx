@@ -1,12 +1,15 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
+import React, { ButtonHTMLAttributes, useState } from "react";
 
 interface MenuButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: ReactNode;
+  popoverText?: string;
 }
 const MenuButton: React.FC<MenuButtonProps> = (props) => {
-  const { children, className } = props;
+  const { children, className, popoverText = "" } = props;
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <button {...props} className={`${className} disabled:text-gray-400 flex gap-2 items-center disabled:translate-y-0 hover:-translate-y-0.5 transition duration-300 ease-in-out`}>
+    <button onPointerOver={() => setHovered(true)} onPointerLeave={() => setHovered(false)} {...props} className={`${className} disabled:text-gray-400 flex gap-5 items-center disabled:translate-y-0 hover:-translate-y-0.5 transition duration-300 ease-in-out`}>
+      <p className={`${hovered && popoverText !== "" ? 'inline' : 'hidden'} w-fit bg-gray-500/50 -left-3 px-2 py-1 text-white/70 rounded-lg absolute top-10 text-xs`}>{popoverText}</p>
       {children}
     </button>
   );
