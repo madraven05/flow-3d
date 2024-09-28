@@ -1,19 +1,32 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ViewContext } from "../context/view-context";
-import { Flow3DNode} from "../models/node";
+import { motion } from "framer-motion-3d";
 
 interface withEditNodeMenuProps {}
 
 const withEditNodeMenu = <P extends object>(Model: React.ComponentType<P>) => {
   return ({ ...props }: P & withEditNodeMenuProps) => {
     const viewContext = useContext(ViewContext);
+    const [hovered, setHovered] = useState(false);
 
     useEffect(() => {
       if (!viewContext?.isEditMode) {
-        console.debug('is not in edit mode')
+        console.debug("is not in edit mode");
         viewContext?.setComponentGuuid(null);
       }
     }, [viewContext?.isEditMode]);
+
+    const handleOnHover = () => {
+      if (viewContext?.isEditMode) {
+        setHovered(true);
+        document.body.style.cursor = "pointer";
+      }
+    };
+
+    const handleLeaveHover = () => {
+      document.body.style.cursor = "auto";
+      setHovered(false);
+    };
 
     const handleEditNode = () => {
       if (viewContext?.isEditMode) {
@@ -27,9 +40,14 @@ const withEditNodeMenu = <P extends object>(Model: React.ComponentType<P>) => {
     };
 
     return (
-      <group onClick={handleEditNode}>
+      <motion.group
+        onPointerOver={handleOnHover}
+        onPointerLeave={handleLeaveHover}
+        animate={{ scale: hovered ? 1.1 : 1 }}
+        onClick={handleEditNode}
+      >
         <Model {...(props as P)} />
-      </group>
+      </motion.group>
     );
   };
 };
