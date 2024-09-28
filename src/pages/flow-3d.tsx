@@ -11,6 +11,7 @@ import {
 import { MeshPhongMaterial } from "three";
 import EditComponentMenu from "../components/edit-component-menu";
 import { useFlow3D } from "../components/hooks/use-flow3d";
+import GridPlane from "../components/three/assets/grid-plane";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes } = useFlow3D();
@@ -32,18 +33,19 @@ const Flow3D: React.FC = () => {
             />
             <ambientLight />
             <directionalLight position={[-10, 10, 10]} />
-            <Plane
-              material={new MeshPhongMaterial({ color: "white" })}
+            <GridPlane
               receiveShadow
               position={[0, -0.5, 0]}
-              args={[20, 25]}
+              args={[25, 25]}
               rotation={[-Math.PI / 2, 0, 0]}
             />
+
             {nodes.map((node) => {
               const componentId = node.componentId;
               const SceneNode = componentsDict[componentId as ComponentKey];
               return (
                 <SceneNode
+                  key={node.guuid}
                   sceneGuuid={node.sceneGuuid}
                   componentId={node.componentId}
                   guuid={node.guuid}

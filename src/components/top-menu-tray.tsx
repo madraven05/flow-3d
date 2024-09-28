@@ -39,7 +39,7 @@ const TopMenuTray: React.FC = () => {
     <div className="z-10 fixed bottom-0 w-full rounded-none flex h-14 lg:top-20 lg:left-1/2 transform lg:-translate-x-1/2 backdrop-blur-xl lg:h-10 lg:w-1/2 bg-orange-100/50 gap-3 text-xl lg:rounded-full text-gray-600 lg:flex justify-around px-10 items-center">
       {/* create new scene */}
       <MenuButton
-        popoverText="New Canvas"
+        popovertext="New Canvas"
         disabled={isNewCanvasBtnDisabled}
         onClick={handleCreateNewScene}
         className="hover:font-extrabold"
@@ -49,7 +49,7 @@ const TopMenuTray: React.FC = () => {
 
       {/* view */}
       <MenuButton
-        popoverText="View Mode"
+        popovertext="View Mode"
         onClick={handleViewMode}
         disabled={viewContext?.isViewMode}
         className="hover:font-extrabold"
@@ -59,7 +59,7 @@ const TopMenuTray: React.FC = () => {
 
       {/* edit */}
       <MenuButton
-        popoverText="Edit Mode"
+        popovertext="Edit Mode"
         onClick={handleEditMode}
         disabled={viewContext?.isEditMode}
         className="hover:font-extrabold"
@@ -68,17 +68,17 @@ const TopMenuTray: React.FC = () => {
       </MenuButton>
 
       {/* undo */}
-      <MenuButton popoverText="Undo" className="hover:font-extrabold">
+      <MenuButton popovertext="Undo" className="hover:font-extrabold">
         <BiUndo />
       </MenuButton>
 
       {/* redo */}
-      <MenuButton popoverText="Redo" className="hover:font-extrabold">
+      <MenuButton popovertext="Redo" className="hover:font-extrabold">
         <BiRedo />
       </MenuButton>
 
       {/* extra */}
-      <MenuButton popoverText="More" className="hover:font-extrabold">
+      <MenuButton popovertext="More" className="hover:font-extrabold">
         <BiMenu />
       </MenuButton>
     </div>
