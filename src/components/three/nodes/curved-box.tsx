@@ -2,9 +2,9 @@ import { RoundedBox } from "@react-three/drei";
 import React from "react";
 import { MeshPhongMaterial } from "three";
 import withEditNodeMenu from "../../hocs/with-edit-node-menu";
-import { Node } from "../../models/node";
+import { Flow3DNode} from "../../models/node";
 
-interface CurvedBoxProps extends Node {
+interface CurvedBoxProps extends Flow3DNode {
   radius?: number;
 }
 
