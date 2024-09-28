@@ -1,0 +1,11 @@
+Model Information:
+* title:	Server Rack and Console v3
+* source:	https://sketchfab.com/3d-models/server-rack-and-console-v3-24ebe6f197c44e0a93f4010045c4a997
+* author:	Ridellco (https://sketchfab.com/ridellco)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Server Rack and Console v3" (https://sketchfab.com/3d-models/server-rack-and-console-v3-24ebe6f197c44e0a93f4010045c4a997) by Ridellco (https://sketchfab.com/ridellco) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

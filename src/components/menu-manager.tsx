@@ -10,6 +10,37 @@ import ComponentCard from "./common/component-card";
 import { BsDatabase } from "react-icons/bs";
 import Input from "./common/input";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
+import { GiLaptop, GiServerRack } from "react-icons/gi";
+import { CiMobile3 } from "react-icons/ci";
+import { TbBucket } from "react-icons/tb";
+
+const componentsData = [
+  {
+    id: "curved-box",
+    icon: <MdCheckBoxOutlineBlank className="text-4xl" />,
+    label: "Curved Box",
+  },
+  {
+    id: "laptop",
+    icon: <GiLaptop className="text-4xl" />,
+    label: "Laptop",
+  },
+  {
+    id: "mobile",
+    icon: <CiMobile3 className="text-4xl" />,
+    label: "Mobile",
+  },
+  {
+    id: "bucket",
+    icon: <TbBucket className="text-4xl" />,
+    label: "Bucket",
+  },
+  {
+    id: "server",
+    icon: <GiServerRack className="text-4xl" />,
+    label: "Server",
+  },
+];
 
 const MenuManager = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -48,19 +79,13 @@ const MenuManager = () => {
         <h3 className="uppercase font-semibold -mt-4">Nodes</h3>
         <HorizontalLine />
         <Input placeholder="Search" />
-        <div className="flex flex-wrap gap-5 justify-center">
-          <ComponentCard componentId="curved-box">
-            <MdCheckBoxOutlineBlank className="text-4xl" />
-            <p className="text-xs">Curved Box</p>
-          </ComponentCard>
-          <ComponentCard componentId="curved-box">
-            <BsDatabase className="text-4xl" />
-            <p className="text-xs">Database</p>
-          </ComponentCard>
-          <ComponentCard componentId="curved-box">
-            <BiServer className="text-4xl" />
-            <p className="text-xs">Server</p>
-          </ComponentCard>
+        <div className="flex flex-wrap gap-5 items-center justify-center">
+          {componentsData.map((comp) => (
+            <ComponentCard componentId={comp.id}>
+              {comp.icon}
+              <p className="text-xs">{comp.label}</p>
+            </ComponentCard>
+          ))}
         </div>
         <HorizontalLine />
 

@@ -21,11 +21,11 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
 
   const handleAddNode = () => {
     console.debug(`Adding component to scene: ${componentId}`);
-    const newNode: Node = {
+    const newNode: Flow3DNode = {
       componentId: componentId,
       guuid: generateUUID(),
       sceneGuuid: scene.metadata.id as string,
-      color: "lightgreen",
+      color: "orange",
       position: [0, 0, 0],
       rotation: [0, 0, 0],
       scale: [1, 1, 1],
