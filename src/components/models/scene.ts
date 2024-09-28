@@ -1,5 +1,5 @@
 import { CameraProps } from "@react-three/fiber"
-import { Node } from "./node"
+import { Flow3DNode} from "./node"
 import { Edge } from "./edge"
 
 export interface SceneMetadata {
@@ -8,7 +8,5 @@ export interface SceneMetadata {
 
 export interface Scene {
     metadata: SceneMetadata,
-    nodes: Node[],
-    edges: Edge[],
     error?: string,
 }

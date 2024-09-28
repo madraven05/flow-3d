@@ -5,7 +5,7 @@ import rootReducer from "../reducers/root-reducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ['scene'],
+  whitelist: ['scene', 'nodes'],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

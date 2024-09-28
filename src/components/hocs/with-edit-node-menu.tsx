@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { ViewContext } from "../context/view-context";
-import { Node } from "../models/node";
+import { Flow3DNode} from "../models/node";
 
 interface withEditNodeMenuProps {}
 

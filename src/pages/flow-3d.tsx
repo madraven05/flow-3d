@@ -10,9 +10,10 @@ import {
 } from "../components/three/components-dir";
 import { MeshPhongMaterial } from "three";
 import EditComponentMenu from "../components/edit-component-menu";
+import { useFlow3D } from "../components/hooks/use-flow3d";
 
 const Flow3D: React.FC = () => {
-  const sceneData = useAppSelector((state) => state.scene);
+  const { scene, nodes } = useFlow3D();
 
   return (
     <div className="mt-10 pt-5 min-h-screen w-full flex gap-2">
@@ -20,7 +21,7 @@ const Flow3D: React.FC = () => {
       <MenuManager />
       <EditComponentMenu />
       <div className="z-0 w-full shadow-md">
-        {sceneData.metadata.id ? (
+        {scene.metadata.id ? (
           <Canvas shadows>
             <OrthographicCamera
               makeDefault
@@ -38,11 +39,12 @@ const Flow3D: React.FC = () => {
               args={[20, 25]}
               rotation={[-Math.PI / 2, 0, 0]}
             />
-            {sceneData.nodes.map((node) => {
+            {nodes.map((node) => {
               const componentId = node.componentId;
               const SceneNode = componentsDict[componentId as ComponentKey];
               return (
                 <SceneNode
+                  sceneGuuid={node.sceneGuuid}
                   componentId={node.componentId}
                   guuid={node.guuid}
                   position={node.position}
