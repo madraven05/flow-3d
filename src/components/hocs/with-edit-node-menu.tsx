@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ViewContext } from "../context/view-context";
 import { motion } from "framer-motion-3d";
+import { Flow3DNode } from "../models/node";
 
 interface withEditNodeMenuProps {}
 
@@ -43,7 +44,7 @@ const withEditNodeMenu = <P extends object>(Model: React.ComponentType<P>) => {
       <motion.group
         onPointerOver={handleOnHover}
         onPointerLeave={handleLeaveHover}
-        animate={{ scale: hovered ? 1.1 : 1 }}
+        animate={{ y: hovered ? 0.5 : 0 }}
         onClick={handleEditNode}
       >
         <Model {...(props as P)} />

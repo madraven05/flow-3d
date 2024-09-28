@@ -1,0 +1,8 @@
+Model Information:
+* title:	Trash-bin
+* source:	https://sketchfab.com/3d-models/trash-bin-3822fafe7a0f4afa8ecbb0f28e69952a
+* author:	Dailsave (https://sketchfab.com/sivkov_dimas)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
