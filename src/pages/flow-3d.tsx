@@ -12,6 +12,7 @@ import { MeshPhongMaterial } from "three";
 import EditComponentMenu from "../components/edit-component-menu";
 import { useFlow3D } from "../components/hooks/use-flow3d";
 import GridPlane from "../components/three/assets/grid-plane";
+import ModeIcon from "../components/common/mode-icon";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes } = useFlow3D();
@@ -21,7 +22,8 @@ const Flow3D: React.FC = () => {
       <TopMenuTray />
       <MenuManager />
       <EditComponentMenu />
-      <div className="z-0 w-full shadow-md">
+      <ModeIcon/>
+      <div className="-z-5 w-full shadow-md">
         {scene.metadata.id ? (
           <Canvas shadows>
             <OrthographicCamera

@@ -106,7 +106,7 @@ const MenuManager = () => {
         <HorizontalLine />
 
         {/* File menu */}
-        <div className="text-base flex flex-col gap-3">
+        <div className="text-sm flex flex-col gap-3">
           <MenuButton>
             <FaSave />
             <p>Save</p>
@@ -127,7 +127,7 @@ const MenuManager = () => {
         <HorizontalLine />
 
         {/* Canvas Menu */}
-        <div className="text-base flex flex-col gap-3">
+        <div className="text-sm flex flex-col gap-3">
           <MenuButton>
             <BiHelpCircle />
             <p>Need Help?</p>

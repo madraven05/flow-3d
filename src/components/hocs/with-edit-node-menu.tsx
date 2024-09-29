@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ViewContext } from "../context/view-context";
 import { motion } from "framer-motion-3d";
-import { Flow3DNode } from "../models/node";
 
 interface withEditNodeMenuProps {}
 
@@ -11,14 +10,24 @@ const withEditNodeMenu = <P extends object>(Model: React.ComponentType<P>) => {
     const [hovered, setHovered] = useState(false);
 
     useEffect(() => {
-      if (!viewContext?.isEditMode) {
-        console.debug("is not in edit mode");
-        viewContext?.setComponentGuuid(null);
+      if(viewContext?.currEditMode !== "view") {
+        const editMode = viewContext?.currEditMode;
+        switch (editMode) {
+          case "move":
+            
+            break;
+          case "select":
+            break;
+          default:
+            break;
+        }
+      } else {
+        viewContext.setComponentGuuid(null);
       }
-    }, [viewContext?.isEditMode]);
+    }, [viewContext?.currEditMode])
 
     const handleOnHover = () => {
-      if (viewContext?.isEditMode) {
+      if (viewContext?.currEditMode !== "view") {
         setHovered(true);
         document.body.style.cursor = "pointer";
       }
@@ -30,10 +39,10 @@ const withEditNodeMenu = <P extends object>(Model: React.ComponentType<P>) => {
     };
 
     const handleEditNode = () => {
-      if (viewContext?.isEditMode) {
+      if (viewContext?.currEditMode !== "view") {
         if ("guuid" in props) {
           const guuid = props.guuid as string;
-          viewContext.setComponentGuuid(guuid);
+          viewContext?.setComponentGuuid(guuid);
         }
       } else {
         viewContext?.setComponentGuuid(null);
