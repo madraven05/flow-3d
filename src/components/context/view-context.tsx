@@ -6,13 +6,13 @@ import {
   useState,
 } from "react";
 
+export type EditModes = "view" | "select" | "move"
+
 interface ViewContextType {
-  isViewMode: boolean;
   componentGuuid: string | null;
   setComponentGuuid: Dispatch<SetStateAction<string | null>>;
-  setIsViewMode: Dispatch<SetStateAction<boolean>>;
-  isEditMode: boolean;
-  setIsEditMode: Dispatch<SetStateAction<boolean>>;
+  currEditMode: EditModes;
+  setCurrEditMode: Dispatch<SetStateAction<EditModes>>;
 }
 
 export const ViewContext = createContext<ViewContextType | undefined>(
@@ -24,19 +24,16 @@ interface ViewProviderProps {
 }
 
 export const ViewProvider: React.FC<ViewProviderProps> = ({ children }) => {
-  const [isViewMode, setIsViewMode] = useState(true);
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [currEditMode, setCurrEditMode] = useState<EditModes>("view");
   const [componentGuuid, setComponentGuuid] = useState<string | null>(null);
 
   return (
     <ViewContext.Provider
       value={{
-        isViewMode,
-        setIsViewMode,
-        isEditMode,
-        setIsEditMode,
         componentGuuid,
         setComponentGuuid,
+        currEditMode,
+        setCurrEditMode
       }}
     >
       {children}

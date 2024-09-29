@@ -6,8 +6,12 @@ import { createNewScene } from "./redux/features/scene/scene-actions";
 import { LuWallpaper } from "react-icons/lu";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { ViewContext } from "./context/view-context";
+import TrayDropdown, { TrayDropdownData } from "./common/tray-dropdown";
+import { FaMousePointer } from "react-icons/fa";
+import { IoMove } from "react-icons/io5";
 
 const TopMenuTray: React.FC = () => {
+
   const sceneData = useAppSelector((state) => state.scene);
   const dispatch = useAppDispatch();
   const handleCreateNewScene = () => {
@@ -26,14 +30,36 @@ const TopMenuTray: React.FC = () => {
   }, [sceneData]);
 
   const handleViewMode = () => {
-    viewContext?.setIsEditMode(false);
-    viewContext?.setIsViewMode(true);
+    viewContext?.setCurrEditMode("view");
   };
 
-  const handleEditMode = () => {
-    viewContext?.setIsEditMode(true);
-    viewContext?.setIsViewMode(false);
-  };
+
+  const handleSelectMode = () => {
+    viewContext?.setCurrEditMode("select");
+  }
+
+  const handleMoveMode = () => {
+    viewContext?.setCurrEditMode("move");
+  }
+
+  const [editModeData, setEditModeData] = useState<TrayDropdownData[]>(
+    [
+      {
+        id: 'select',
+        icon: <FaMousePointer />,
+        label: "Select",
+        onClick: handleSelectMode,
+        active: false,
+      },
+      {
+        id: 'move',
+        icon: <IoMove />,
+        label: "Move",
+        onClick: handleMoveMode,
+        active: false
+      },
+    ]
+  )
 
   return (
     <div className="z-10 fixed bottom-0 w-full rounded-none flex h-14 lg:top-20 lg:left-1/2 transform lg:-translate-x-1/2 backdrop-blur-xl lg:h-10 lg:w-1/2 bg-orange-100/50 gap-3 text-xl lg:rounded-full text-gray-600 lg:flex justify-around px-10 items-center">
@@ -51,21 +77,14 @@ const TopMenuTray: React.FC = () => {
       <MenuButton
         popovertext="View Mode"
         onClick={handleViewMode}
-        disabled={viewContext?.isViewMode}
+        disabled={viewContext?.currEditMode === 'view'}
         className="hover:font-extrabold"
       >
         <MdOutlineRemoveRedEye />
       </MenuButton>
 
       {/* edit */}
-      <MenuButton
-        popovertext="Edit Mode"
-        onClick={handleEditMode}
-        disabled={viewContext?.isEditMode}
-        className="hover:font-extrabold"
-      >
-        <BiPencil />
-      </MenuButton>
+      <TrayDropdown data={editModeData}/>
 
       {/* undo */}
       <MenuButton popovertext="Undo" className="hover:font-extrabold">
