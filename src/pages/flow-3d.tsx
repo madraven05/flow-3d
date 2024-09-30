@@ -1,28 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
-import { useAppSelector } from "../components/hooks/use-app-dispatch";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, OrthographicCamera, Plane } from "@react-three/drei";
+import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import {
   ComponentKey,
   componentsDict,
 } from "../components/three/components-dir";
-import { MeshPhongMaterial } from "three";
 import EditComponentMenu from "../components/edit-component-menu";
 import { useFlow3D } from "../components/hooks/use-flow3d";
 import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
+import { ViewContext } from "../components/context/view-context";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes } = useFlow3D();
-
+  const viewContext = useContext(ViewContext);
   return (
     <div className="mt-10 pt-5 min-h-screen w-full flex gap-2">
       <TopMenuTray />
       <MenuManager />
       <EditComponentMenu />
-      <ModeIcon/>
+      <ModeIcon />
       <div className="-z-5 w-full shadow-md">
         {scene.metadata.id ? (
           <Canvas shadows>
@@ -58,7 +57,7 @@ const Flow3D: React.FC = () => {
                 />
               );
             })}
-            <OrbitControls />
+            {viewContext?.currEditMode !== "move" ? <OrbitControls /> : null}
           </Canvas>
         ) : null}
       </div>

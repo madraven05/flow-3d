@@ -12,7 +12,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { Flow3DNode } from '../../models/node'
-import withEditNodeMenu from '../../hocs/with-edit-node-menu'
+import withEditNodeOptions from '../../hocs/with-edit-node-options'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -36,4 +36,4 @@ const Bucket: React.FC<Flow3DNode> = ({...props}) => {
 }
 
 useGLTF.preload('/bucket/scene.gltf')
-export default withEditNodeMenu(Bucket)
+export default withEditNodeOptions(Bucket)

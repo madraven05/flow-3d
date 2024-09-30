@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import React from "react";
 import { MeshPhongMaterial } from "three";
-import withEditNodeMenu from "../../hocs/with-edit-node-menu";
+import withEditNodeOptions from "../../hocs/with-edit-node-options";
 import { Flow3DNode } from "../../models/node";
 
 interface CurvedBoxProps extends Flow3DNode {
@@ -15,9 +15,10 @@ const CurvedBox: React.FC<CurvedBoxProps> = ({
   radius = 0.2,
   color = "gray",
   guuid,
+  ...props
 }) => {
   return (
-    <group key={guuid}>
+    <group {...props} key={guuid}>
       <RoundedBox
         castShadow
         material={new MeshPhongMaterial({ color: color })}
@@ -30,4 +31,4 @@ const CurvedBox: React.FC<CurvedBoxProps> = ({
   );
 };
 
-export default withEditNodeMenu(CurvedBox);
+export default withEditNodeOptions(CurvedBox);
