@@ -32,7 +32,7 @@ const EditComponentMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
-    if (viewContext?.componentGuuid !== null && viewContext?.currEditMode == 'select') {
+    if (viewContext?.componentGuuid !== null && viewContext?.currEditMode === 'select') {
       setOpenMenu(true);
       const node = nodes.filter(
         (n) => n.guuid === viewContext?.componentGuuid

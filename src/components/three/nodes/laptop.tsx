@@ -12,7 +12,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { Flow3DNode } from "../../models/node";
-import withEditNodeMenu from "../../hocs/with-edit-node-menu";
+import withEditNodeOptions from "../../hocs/with-edit-node-options";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -55,4 +55,4 @@ const Laptop: React.FC<Flow3DNode> = ({
 
 useGLTF.preload("/laptop/scene.gltf");
 
-export default withEditNodeMenu(Laptop);
+export default withEditNodeOptions(Laptop);

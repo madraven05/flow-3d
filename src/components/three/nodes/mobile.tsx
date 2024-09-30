@@ -12,7 +12,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { Flow3DNode } from "../../models/node";
-import withEditNodeMenu from "../../hocs/with-edit-node-menu";
+import withEditNodeOptions from "../../hocs/with-edit-node-options";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -36,10 +36,10 @@ type GLTFResult = GLTF & {
   animations: GLTFAction[];
 };
 
-const Mobile: React.FC<Flow3DNode> = ({ position, rotation, scale, guuid }) => {
+const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
   const { nodes, materials } = useGLTF("/mobile/scene.gltf") as GLTFResult;
   return (
-    <group key={guuid} position={position} rotation={rotation} scale={scale}>
+    <group {...props}>
       <group scale={1.5}  dispose={null}>
         <group rotation={[-Math.PI / 4, 0, 0]}>
           <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
@@ -117,4 +117,4 @@ const Mobile: React.FC<Flow3DNode> = ({ position, rotation, scale, guuid }) => {
 };
 
 useGLTF.preload("/mobile/scene.gltf");
-export default withEditNodeMenu(Mobile);
+export default withEditNodeOptions(Mobile);
