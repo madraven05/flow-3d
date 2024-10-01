@@ -41,21 +41,10 @@ const Flow3D: React.FC = () => {
               rotation={[-Math.PI / 2, 0, 0]}
             />
 
-            {nodes.map((node) => {
-              const componentId = node.componentId;
+            {nodes.map((nodeProps) => {
+              const componentId = nodeProps.componentId;
               const SceneNode = componentsDict[componentId as ComponentKey];
-              return (
-                <SceneNode
-                  key={node.guuid}
-                  sceneGuuid={node.sceneGuuid}
-                  componentId={node.componentId}
-                  guuid={node.guuid}
-                  position={node.position}
-                  color={node.color}
-                  rotation={node.rotation}
-                  scale={node.scale}
-                />
-              );
+              return <SceneNode {...nodeProps} />;
             })}
             {viewContext?.currEditMode !== "move" ? <OrbitControls /> : null}
           </Canvas>

@@ -43,7 +43,7 @@ const GridPlane: React.FC<GridPlaneProps> = ({
     
             // Draw grid lines
             if (mod(uv.x + offset, interval) < lineThickness || mod(uv.y + offset, interval) < lineThickness) {
-              col = vec3(0.0); 
+              col = vec3(0.4); 
             }
     
             gl_FragColor = vec4(col, 0.5);  // Output color with full opacity

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Flow3DNode } from "../../../models/node";
+import { Flow3DNode, Flow3DNodes } from "../../../models/node";
 import {
   addNewNodeToSceneRequest,
   addNewNodeToSceneSuccess,
@@ -9,7 +9,7 @@ import {
 
 export const addNodeToScene = createAsyncThunk(
   "node/addNewNode",
-  async (node: Flow3DNode, { dispatch }) => {
+  async (node: Flow3DNodes, { dispatch }) => {
     dispatch(addNewNodeToSceneRequest());
     dispatch(addNewNodeToSceneSuccess(node));
   }

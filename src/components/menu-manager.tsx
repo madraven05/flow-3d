@@ -4,7 +4,7 @@ import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle, BiServer } from "react-icons/bi";
 import { MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
 import MenuButton from "./common/menu-button";
-import { IoClose, IoMenuOutline, IoRemoveOutline } from "react-icons/io5";
+import { IoClose, IoMenuOutline, IoRemoveOutline, IoTextOutline } from "react-icons/io5";
 import { useState } from "react";
 import ComponentCard from "./common/component-card";
 import { BsDatabase } from "react-icons/bs";
@@ -39,6 +39,11 @@ const componentsData = [
     id: "server",
     icon: <GiServerRack className="text-4xl" />,
     label: "Server",
+  },
+  {
+    id: "text",
+    icon: <IoTextOutline className="text-4xl" />,
+    label: "Text",
   },
 ];
 
