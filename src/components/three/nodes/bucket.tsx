@@ -21,7 +21,6 @@ type GLTFResult = GLTF & {
   materials: {
     Material: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
 }
 
 const Bucket: React.FC<Flow3DNode> = ({...props}) => {

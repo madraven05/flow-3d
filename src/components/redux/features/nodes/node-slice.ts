@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Flow3DNode } from "../../../models/node";
+import { Flow3DNode, Flow3DNodes } from "../../../models/node";
 import { update } from "three/examples/jsm/libs/tween.module.js";
 import { act } from "react";
 
-const initialState: Flow3DNode[] = [];
+const initialState: Flow3DNodes[] = [];
 
 const nodesSlice = createSlice({
   name: "nodes",
@@ -12,7 +12,7 @@ const nodesSlice = createSlice({
     addNewNodeToSceneRequest() {
       console.debug("Request received to add new node");
     },
-    addNewNodeToSceneSuccess(state, action: PayloadAction<Flow3DNode>) {
+    addNewNodeToSceneSuccess(state, action: PayloadAction<Flow3DNodes>) {
       state.push(action.payload);
     },
     addNewNodeToSceneFailure() {
@@ -23,7 +23,7 @@ const nodesSlice = createSlice({
     },
     updateNodePropertiesSuccess(
       state,
-      action: PayloadAction<{ guuid: string; update: Partial<Flow3DNode> }>
+      action: PayloadAction<{ guuid: string; update: Partial<Flow3DNodes> }>
     ) {
         const node = state.find((node) => node.guuid === action.payload.guuid);
         if (node) {

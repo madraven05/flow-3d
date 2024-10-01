@@ -1,7 +1,12 @@
 import React, { HTMLAttributes, ReactNode } from "react";
 import CurvedBox from "../three/nodes/curved-box";
 import { useAppDispatch, useAppSelector } from "../hooks/use-app-dispatch";
-import { Flow3DNode} from "../models/node";
+import {
+  createFlow3DNode,
+  createFlow3DTextNode,
+  Flow3DNode,
+  Flow3DNodes,
+} from "../models/node";
 import { generateUUID } from "three/src/math/MathUtils.js";
 import { addNodeToScene } from "../redux/features/nodes/node-actions";
 import { useFlow3D } from "../hooks/use-flow3d";
@@ -17,19 +22,24 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const {scene} = useFlow3D();
+  const { scene } = useFlow3D();
 
   const handleAddNode = () => {
     console.debug(`Adding component to scene: ${componentId}`);
-    const newNode: Flow3DNode = {
-      componentId: componentId,
-      guuid: generateUUID(),
-      sceneGuuid: scene.metadata.id as string,
-      color: "orange",
-      position: [0, 0, 0],
-      rotation: [0, 0, 0],
-      scale: [1, 1, 1],
-    };
+    let newNode: Flow3DNodes;
+    if (componentId === "text") {
+      newNode = createFlow3DTextNode(
+        componentId,
+        generateUUID(),
+        scene.metadata.id as string
+      );
+    } else {
+      newNode = createFlow3DNode(
+        componentId,
+        generateUUID(),
+        scene.metadata.id as string
+      );
+    }
     dispatch(addNodeToScene(newNode));
   };
 
