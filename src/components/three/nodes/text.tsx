@@ -40,9 +40,9 @@ const TextNode: React.FC<Flow3DNodeTextNode> = ({
       {showEditTextInput ? (
         <Html
           position={[
-            props.position![0] + 0.5,
+            props.position![0]+1,
             props.position![1],
-            props.position![2] - 0.8,
+            props.position![2]+2,
           ]}
           className=""
         >
