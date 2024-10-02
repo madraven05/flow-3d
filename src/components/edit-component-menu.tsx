@@ -9,6 +9,7 @@ import { Flow3DNode, Flow3DNodeKeys } from "./models/node";
 import { useAppDispatch } from "./hooks/use-app-dispatch";
 import { updateNodeProperties } from "./redux/features/nodes/node-actions";
 
+
 const EditComponentMenu = () => {
   const viewContext = useContext(ViewContext);
   const dispatch = useAppDispatch();

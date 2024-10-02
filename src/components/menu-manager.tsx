@@ -47,8 +47,15 @@ const componentsData = [
   },
 ];
 
-const MenuManager = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+interface MenuManagerProps {
+  openMenu: boolean,
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const MenuManager:React.FC<MenuManagerProps> = ({
+  openMenu,
+  setOpenMenu
+}) => {
 
   const handleOpenMenu = () => {
     setOpenMenu(true);
