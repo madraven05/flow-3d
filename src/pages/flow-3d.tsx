@@ -15,8 +15,6 @@ import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
-import LineEdge from "../components/three/edges/line-edge";
-import { generateUUID } from "three/src/math/MathUtils.js";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();

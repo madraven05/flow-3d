@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Flow3DEdge } from "../../../models/edge";
+import { Flow3DEdge, Flow3DEdges } from "../../../models/edge";
 
-const initialState: Flow3DEdge[] = [];
+const initialState: Flow3DEdges[] = [];
 
 const edgesSlice = createSlice({
   name: "edges",
@@ -10,7 +10,7 @@ const edgesSlice = createSlice({
     addNewEdgeToSceneRequest() {
       console.debug("Request received to add new node");
     },
-    addNewEdgeToSceneSuccess(state, action: PayloadAction<Flow3DEdge>) {
+    addNewEdgeToSceneSuccess(state, action: PayloadAction<Flow3DEdges>) {
       state.push(action.payload);
     },
     addNewEdgeToSceneFailure() {
@@ -21,7 +21,7 @@ const edgesSlice = createSlice({
     },
     updateEdgePropertiesSuccess(
       state,
-      action: PayloadAction<{ guuid: string; update: Partial<Flow3DEdge> }>
+      action: PayloadAction<{ guuid: string; update: Partial<Flow3DEdges> }>
     ) {
       const edge = state.find((edge) => edge.guuid === action.payload.guuid);
       if (edge) {

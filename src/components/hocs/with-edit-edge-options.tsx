@@ -1,10 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { ViewContext } from "../context/view-context";
 import { Html, Line } from "@react-three/drei";
-import { PointsProps } from "@react-three/fiber";
 import * as THREE from "three";
 import { Flow3DEdge, LinePoints } from "../models/edge";
-import { motion } from "framer-motion-3d";
 import { useGesture } from "@use-gesture/react";
 import { getXZDragPosition } from "./with-edit-node-options";
 import { useAppDispatch } from "../hooks/use-app-dispatch";

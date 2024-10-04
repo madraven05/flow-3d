@@ -1,7 +1,7 @@
 import { FaImage, FaSave, FaUpload } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
-import { BiHelpCircle, BiServer } from "react-icons/bi";
+import { BiHelpCircle } from "react-icons/bi";
 import { MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
 import MenuButton from "./common/menu-button";
 import {
@@ -10,14 +10,12 @@ import {
   IoRemoveOutline,
   IoTextOutline,
 } from "react-icons/io5";
-import { useState } from "react";
 import ComponentCard from "./common/component-card";
-import { BsDatabase } from "react-icons/bs";
 import Input from "./common/input";
-import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 import { GiLaptop, GiServerRack } from "react-icons/gi";
 import { CiMobile3 } from "react-icons/ci";
 import { TbBucket } from "react-icons/tb";
+import { AiOutlineDash } from "react-icons/ai";
 
 const componentsData = [
   {
@@ -57,6 +55,11 @@ const edgesData = [
     id: "line-edge",
     icon: <IoRemoveOutline className="text-4xl" />,
     label: "Line",
+  },
+  {
+    id: "dash-edge",
+    icon: <AiOutlineDash className="text-4xl" />,
+    label: "Dash Edge",
   },
 ];
 

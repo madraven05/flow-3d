@@ -1,16 +1,14 @@
 import React, { HTMLAttributes, ReactNode } from "react";
-import CurvedBox from "../three/nodes/curved-box";
-import { useAppDispatch, useAppSelector } from "../hooks/use-app-dispatch";
+import { useAppDispatch } from "../hooks/use-app-dispatch";
 import {
   createFlow3DNode,
   createFlow3DTextNode,
-  Flow3DNode,
   Flow3DNodes,
 } from "../models/node";
 import { generateUUID } from "three/src/math/MathUtils.js";
 import { addNodeToScene } from "../redux/features/nodes/node-actions";
 import { useFlow3D } from "../hooks/use-flow3d";
-import { createFlow3DEdge, Flow3DEdge } from "../models/edge";
+import { createFlow3DDashEdge, createFlow3DEdge, Flow3DEdges } from "../models/edge";
 import { addEdgeToScene } from "../redux/features/edges/edge-actions";
 
 interface ComponentCardProps extends HTMLAttributes<HTMLDivElement> {
@@ -37,7 +35,18 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   }
 
   const handleAddEdge = () => {
-    let newEdge: Flow3DEdge = createFlow3DEdge(componentId, scene.metadata.id as string);
+    let newEdge: Flow3DEdges
+    switch (componentId) {
+      case "line-edge":
+        newEdge = createFlow3DEdge(componentId, scene.metadata.id as string)
+        break;
+      case "dash-edge":
+        newEdge = createFlow3DDashEdge(componentId, scene.metadata.id as string);
+        break;
+      default:
+        newEdge = createFlow3DEdge(componentId, scene.metadata.id as string)
+        break;
+    }
     dispatch(addEdgeToScene(newEdge));
   }
 
