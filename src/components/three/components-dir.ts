@@ -1,4 +1,5 @@
 import { Flow3DNodes } from "../models/node";
+import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/bucket";
 import CurvedBox from "./nodes/curved-box";
 import Laptop from "./nodes/laptop";
@@ -6,7 +7,7 @@ import Mobile from "./nodes/mobile";
 import Server from "./nodes/server";
 import TextNode from "./nodes/text";
 
-export const componentsDict = {
+export const nodeIdToFCDict = {
   "curved-box": CurvedBox,
   "laptop": Laptop,
   "mobile": Mobile,
@@ -15,4 +16,9 @@ export const componentsDict = {
   "text": TextNode,
 } as const;
 
-export type ComponentKey = keyof typeof componentsDict;
+export const edgeIdToFCDict = {
+  "line-edge": LineEdge
+} as const;
+
+export type  EdgeIdToFCDictKeys = keyof typeof edgeIdToFCDict;
+export type NodeIdToFCDictKeys = keyof typeof nodeIdToFCDict;

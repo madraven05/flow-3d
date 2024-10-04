@@ -8,6 +8,16 @@ import { updateNodeProperties } from "../redux/features/nodes/node-actions";
 
 interface withEditNodeOptionsProps {}
 
+export const getXZDragPosition = (
+  x: number,
+  y: number
+): [number, number, number] => {
+  const xMovement = x / 80;
+  const zMovement = y / 80;
+
+  return [xMovement + zMovement, 0, zMovement - xMovement]
+};
+
 /**
  * HOC that provides editing functionality to a Flow3DNode.
  * Functionalities - Edit menu on select, dragging on move
@@ -32,16 +42,6 @@ const withEditNodeOptions = <P extends object>(
       return null;
     };
 
-    const getXZDragPosition = (
-      x: number,
-      y: number
-    ): [number, number, number] => {
-      const xMovement = x / 80;
-      const zMovement = y / 80;
-
-      return [xMovement + zMovement, 0, zMovement - xMovement]
-    };
-
     const setNodePosition = (newPosition: [number, number, number]): void => {
       const update: Partial<Flow3DNode> = {
         position: newPosition,
@@ -60,6 +60,7 @@ const withEditNodeOptions = <P extends object>(
       const editMode = viewContext?.currEditMode;
       switch (editMode) {
         case "move":
+          
           break;
         case "select":
           break;
@@ -80,12 +81,15 @@ const withEditNodeOptions = <P extends object>(
           viewContext?.currEditMode === "move" &&
           viewContext.componentGuuid
         ) {
+          viewContext?.setFreezeOrbitControl(true);
           const newPosition = getXZDragPosition(x,y);
 
           if(lastOffset) setNodePosition(newPosition);
         }
       },
-      
+      onDragEnd: () => {
+        viewContext?.setFreezeOrbitControl(false);
+      }
     });
     
     //#region Event handlers

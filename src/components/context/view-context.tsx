@@ -9,6 +9,8 @@ import {
 export type EditModes = "view" | "select" | "move"
 
 interface ViewContextType {
+  freezeOrbitControl: boolean,
+  setFreezeOrbitControl: Dispatch<SetStateAction<boolean>>;
   componentGuuid: string | null;
   setComponentGuuid: Dispatch<SetStateAction<string | null>>;
   currEditMode: EditModes;
@@ -24,12 +26,15 @@ interface ViewProviderProps {
 }
 
 export const ViewProvider: React.FC<ViewProviderProps> = ({ children }) => {
+  const [freezeOrbitControl, setFreezeOrbitControl] = useState(false);
   const [currEditMode, setCurrEditMode] = useState<EditModes>("view");
   const [componentGuuid, setComponentGuuid] = useState<string | null>(null);
 
   return (
     <ViewContext.Provider
       value={{
+        freezeOrbitControl,
+        setFreezeOrbitControl,
         componentGuuid,
         setComponentGuuid,
         currEditMode,
