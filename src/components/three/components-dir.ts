@@ -1,4 +1,4 @@
-import { Flow3DNodes } from "../models/node";
+import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/bucket";
 import CurvedBox from "./nodes/curved-box";
@@ -17,7 +17,8 @@ export const nodeIdToFCDict = {
 } as const;
 
 export const edgeIdToFCDict = {
-  "line-edge": LineEdge
+  "line-edge": LineEdge,
+  "dash-edge": DashEdge
 } as const;
 
 export type  EdgeIdToFCDictKeys = keyof typeof edgeIdToFCDict;
