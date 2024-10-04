@@ -13,7 +13,7 @@ const CurvedBox: React.FC<CurvedBoxProps> = ({
   rotation = [0, 0, 0],
   scale = [1, 1, 1],
   radius = 0.2,
-  color = "gray",
+  color,
   guuid,
   ...props
 }) => {

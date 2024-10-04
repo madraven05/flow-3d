@@ -16,6 +16,7 @@ import { GiLaptop, GiServerRack } from "react-icons/gi";
 import { CiMobile3 } from "react-icons/ci";
 import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
+import { BsDatabase } from "react-icons/bs";
 
 const componentsData = [
   {
@@ -42,6 +43,11 @@ const componentsData = [
     id: "server",
     icon: <GiServerRack className="text-4xl" />,
     label: "Server",
+  },
+  {
+    id: "database",
+    icon: <BsDatabase className="text-4xl" />,
+    label: "Database",
   },
   {
     id: "text",

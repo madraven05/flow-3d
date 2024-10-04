@@ -2,6 +2,7 @@ import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/bucket";
 import CurvedBox from "./nodes/curved-box";
+import Database from "./nodes/database";
 import Laptop from "./nodes/laptop";
 import Mobile from "./nodes/mobile";
 import Server from "./nodes/server";
@@ -14,6 +15,7 @@ export const nodeIdToFCDict = {
   "bucket": Bucket,
   "server": Server,
   "text": TextNode,
+  "database": Database,
 } as const;
 
 export const edgeIdToFCDict = {
