@@ -33,6 +33,18 @@ const nodesSlice = createSlice({
     updateNodePropertiesFailure() {
       console.error("Updating node properties failed!");
     },
+    deleteNodeRequest() {
+
+    }, 
+    deleteNodeSuccess(state, action: PayloadAction<{guuid: string}>) {
+      const idx = state.findIndex(node => node.guuid === action.payload.guuid);
+      if(idx !== -1) {
+        state.splice(idx, 1)
+      }
+    },
+    deleteNodeFailure() {
+
+    }
   },
 });
 
@@ -43,5 +55,8 @@ export const {
   updateNodePropertiesRequest,
   updateNodePropertiesSuccess,
   updateNodePropertiesFailure,
+  deleteNodeRequest,
+  deleteNodeSuccess,
+  deleteNodeFailure
 } = nodesSlice.actions;
 export default nodesSlice.reducer;

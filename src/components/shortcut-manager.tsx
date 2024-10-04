@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { ViewContext } from "./context/view-context";
+import { deleteNodeFromScene } from "./redux/features/nodes/node-actions";
+import { useAppDispatch } from "./hooks/use-app-dispatch";
 
 interface ShortcutManagerProps {
   openMenuManager: boolean;
@@ -11,6 +13,7 @@ const ShortcutManager: React.FC<ShortcutManagerProps> = ({
   setOpenMenuManager,
 }) => {
   const viewContext = useContext(ViewContext);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleShortcuts = (e: KeyboardEvent) => {
@@ -27,6 +30,13 @@ const ShortcutManager: React.FC<ShortcutManagerProps> = ({
           break;
         case "m":
           viewContext?.setCurrEditMode("move");
+          break;
+        case "Delete":
+          const guuid = viewContext?.componentGuuid;
+          if (guuid && viewContext.currEditMode === "select") {
+            console.log("deleting", guuid);
+            dispatch(deleteNodeFromScene({ guuid: guuid }));
+          }
           break;
         default:
           break;

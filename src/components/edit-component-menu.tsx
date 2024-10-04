@@ -7,8 +7,11 @@ import { IoClose } from "react-icons/io5";
 import EditInput from "./common/edit-input";
 import { Flow3DNode, Flow3DNodeKeys } from "./models/node";
 import { useAppDispatch } from "./hooks/use-app-dispatch";
-import { updateNodeProperties } from "./redux/features/nodes/node-actions";
-
+import {
+  deleteNodeFromScene,
+  updateNodeProperties,
+} from "./redux/features/nodes/node-actions";
+import { MdDelete } from "react-icons/md";
 
 const EditComponentMenu = () => {
   const viewContext = useContext(ViewContext);
@@ -33,7 +36,10 @@ const EditComponentMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
-    if (viewContext?.componentGuuid !== null && viewContext?.currEditMode === 'select') {
+    if (
+      viewContext?.componentGuuid !== null &&
+      viewContext?.currEditMode === "select"
+    ) {
       setOpenMenu(true);
       const node = nodes.filter(
         (n) => n.guuid === viewContext?.componentGuuid
@@ -124,7 +130,7 @@ const EditComponentMenu = () => {
     e: React.ChangeEvent<HTMLInputElement>,
     idx: 0 | 1 | 2
   ) => {
-    const updatedValues: [number, number, number] = [...positionValues];
+    const updatedValues: [number, number, number] = [...scaleValues];
     updatedValues[idx] = Number(e.target.value);
     setScaleValues(updatedValues);
 
@@ -133,6 +139,11 @@ const EditComponentMenu = () => {
   //#endregion
 
   const handleCloseMenu = () => {
+    viewContext?.setComponentGuuid(null);
+  };
+
+  const handleDeleteComponent = () => {
+    dispatch(deleteNodeFromScene({ guuid: componentGuuid }));
     viewContext?.setComponentGuuid(null);
   };
 
@@ -147,6 +158,12 @@ const EditComponentMenu = () => {
         className="fixed left-5 top-6 text-base text-gray-500 rounded-full bg-orange-800/10 backdrop-blur-md p-2"
       >
         <IoClose />
+      </MenuButton>
+      <MenuButton
+        onClick={handleDeleteComponent}
+        className="fixed right-5 top-6 text-xl text-red-500 rounded-full backdrop-blur-md p-2"
+      >
+        <MdDelete />
       </MenuButton>
       <div>
         <h3 className="uppercase text-center">Edit node</h3>
