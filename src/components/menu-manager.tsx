@@ -4,7 +4,12 @@ import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle, BiServer } from "react-icons/bi";
 import { MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
 import MenuButton from "./common/menu-button";
-import { IoClose, IoMenuOutline, IoRemoveOutline, IoTextOutline } from "react-icons/io5";
+import {
+  IoClose,
+  IoMenuOutline,
+  IoRemoveOutline,
+  IoTextOutline,
+} from "react-icons/io5";
 import { useState } from "react";
 import ComponentCard from "./common/component-card";
 import { BsDatabase } from "react-icons/bs";
@@ -47,16 +52,20 @@ const componentsData = [
   },
 ];
 
+const edgesData = [
+  {
+    id: "line-edge",
+    icon: <IoRemoveOutline className="text-4xl" />,
+    label: "Line",
+  },
+];
+
 interface MenuManagerProps {
-  openMenu: boolean,
-  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>
+  openMenu: boolean;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MenuManager:React.FC<MenuManagerProps> = ({
-  openMenu,
-  setOpenMenu
-}) => {
-
+const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
   const handleOpenMenu = () => {
     setOpenMenu(true);
   };
@@ -93,7 +102,7 @@ const MenuManager:React.FC<MenuManagerProps> = ({
         <Input placeholder="Search" />
         <div className="flex flex-wrap gap-5 items-center justify-center">
           {componentsData.map((comp) => (
-            <ComponentCard componentId={comp.id}>
+            <ComponentCard type="node" componentId={comp.id}>
               {comp.icon}
               <p className="text-xs">{comp.label}</p>
             </ComponentCard>
@@ -106,14 +115,12 @@ const MenuManager:React.FC<MenuManagerProps> = ({
         <HorizontalLine />
         <Input placeholder="Search" />
         <div className="flex flex-wrap gap-5 items-center justify-center">
-          <ComponentCard componentId="curved-box">
-            <IoRemoveOutline className="text-4xl" />
-            <p className="text-xs">Line</p>
-          </ComponentCard>
-          <ComponentCard componentId="curved-box">
-            <LiaLongArrowAltRightSolid className="text-4xl" />
-            <p className="text-xs text-center">Straight Arrow</p>
-          </ComponentCard>
+          {edgesData.map((edge) => (
+            <ComponentCard type="edge" componentId={edge.id}>
+              {edge.icon}
+              <p className="text-xs">{edge.label}</p>
+            </ComponentCard>
+          ))}
         </div>
         <HorizontalLine />
 

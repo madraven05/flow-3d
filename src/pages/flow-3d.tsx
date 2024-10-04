@@ -4,8 +4,10 @@ import TopMenuTray from "../components/top-menu-tray";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import {
-  ComponentKey,
-  componentsDict,
+  edgeIdToFCDict,
+  EdgeIdToFCDictKeys,
+  nodeIdToFCDict,
+  NodeIdToFCDictKeys,
 } from "../components/three/components-dir";
 import EditComponentMenu from "../components/edit-component-menu";
 import { useFlow3D } from "../components/hooks/use-flow3d";
@@ -13,9 +15,11 @@ import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
+import LineEdge from "../components/three/edges/line-edge";
+import { generateUUID } from "three/src/math/MathUtils.js";
 
 const Flow3D: React.FC = () => {
-  const { scene, nodes } = useFlow3D();
+  const { scene, nodes, edges } = useFlow3D();
   const viewContext = useContext(ViewContext);
 
   const [openMenuManager, setOpenMenuManager] = useState(false);
@@ -24,10 +28,16 @@ const Flow3D: React.FC = () => {
     <div className="mt-10 pt-5 min-h-screen w-full flex gap-2">
       {/* Components */}
       <TopMenuTray />
-      <MenuManager openMenu={openMenuManager} setOpenMenu={setOpenMenuManager}/>
+      <MenuManager
+        openMenu={openMenuManager}
+        setOpenMenu={setOpenMenuManager}
+      />
       <EditComponentMenu />
       <ModeIcon />
-      <ShortcutManager openMenuManager={openMenuManager} setOpenMenuManager={setOpenMenuManager}/>
+      <ShortcutManager
+        openMenuManager={openMenuManager}
+        setOpenMenuManager={setOpenMenuManager}
+      />
 
       {/* Canvas */}
       <div className="-z-5 w-full shadow-md">
@@ -49,12 +59,22 @@ const Flow3D: React.FC = () => {
               rotation={[-Math.PI / 2, 0, 0]}
             />
 
+            {/* Render nodes */}
             {nodes.map((nodeProps) => {
               const componentId = nodeProps.componentId;
-              const SceneNode = componentsDict[componentId as ComponentKey];
+              const SceneNode =
+                nodeIdToFCDict[componentId as NodeIdToFCDictKeys];
               return <SceneNode {...nodeProps} />;
             })}
-            {viewContext?.currEditMode !== "move" ? <OrbitControls /> : null}
+
+            {/* Render edges */}
+            {edges.map((edgeProps) => {
+              const edgeId = edgeProps.edgeId;
+              const EdgeNode = edgeIdToFCDict[edgeId as EdgeIdToFCDictKeys];
+              return <EdgeNode {...edgeProps} />;
+            })}
+
+            {!viewContext?.freezeOrbitControl ? <OrbitControls /> : null}
           </Canvas>
         ) : null}
       </div>
