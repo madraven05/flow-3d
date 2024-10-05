@@ -8,7 +8,7 @@ import {
 import { generateUUID } from "three/src/math/MathUtils.js";
 import { addNodeToScene } from "../redux/features/nodes/node-actions";
 import { useFlow3D } from "../hooks/use-flow3d";
-import { createFlow3DDashEdge, createFlow3DEdge, Flow3DEdges } from "../models/edge";
+import { createFlow3DArrowEdge, createFlow3DDashEdge, createFlow3DEdge, Flow3DEdges } from "../models/edge";
 import { addEdgeToScene } from "../redux/features/edges/edge-actions";
 
 interface ComponentCardProps extends HTMLAttributes<HTMLDivElement> {
@@ -42,6 +42,9 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
         break;
       case "dash-edge":
         newEdge = createFlow3DDashEdge(componentId, scene.metadata.id as string);
+        break;
+      case "arrow-edge":
+        newEdge = createFlow3DArrowEdge(componentId, scene.metadata.id as string);
         break;
       default:
         newEdge = createFlow3DEdge(componentId, scene.metadata.id as string)

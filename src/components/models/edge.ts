@@ -36,7 +36,12 @@ export interface Flow3DDashEdge extends Flow3DEdge {
   gapSize?: number
 }
 
-export type Flow3DEdges = Flow3DEdge | Flow3DDashEdge;
+export interface Flow3DArrowEdge extends Flow3DEdge {
+  coneRadius?: number,
+  coneHeight?: number
+}
+
+export type Flow3DEdges = Flow3DEdge | Flow3DDashEdge | Flow3DArrowEdge;
 export type Flow3DEdgeKeys = keyof Flow3DEdge;
 //#endregion
 
@@ -85,6 +90,33 @@ export const createFlow3DDashEdge = (
   points,
   dashSize,
   gapSize,
+  color,
+  width,
+  fromNode,
+  toNode,
+});
+
+export const createFlow3DArrowEdge = (
+  edgeId: string,
+  sceneId: string,
+  guuid: string = generateUUID(),
+  points: LinePoints = [
+    [0, 0, 0],
+    [0, 0, -1],
+  ],
+  coneRadius: number = 0.1,
+  coneArrow: number = 0.2,
+  color: string = "black",
+  width: number = 2,
+  fromNode: string | null = null,
+  toNode: string | null = null
+) => ({
+  edgeId,
+  sceneId,
+  guuid,
+  points,
+  coneRadius,
+  coneArrow,
   color,
   width,
   fromNode,
