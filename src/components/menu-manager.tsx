@@ -2,7 +2,7 @@ import { FaImage, FaSave, FaUpload } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle } from "react-icons/bi";
-import { MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
+import { MdArrowRightAlt, MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
 import MenuButton from "./common/menu-button";
 import {
   IoClose,
@@ -66,6 +66,11 @@ const edgesData = [
     id: "dash-edge",
     icon: <AiOutlineDash className="text-4xl" />,
     label: "Dash Edge",
+  },
+  {
+    id: "arrow-edge",
+    icon: <MdArrowRightAlt className="text-4xl" />,
+    label: "Arrow Edge",
   },
 ];
 

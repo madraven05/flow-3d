@@ -15,6 +15,7 @@ import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
+import ArrowEdge from "../components/three/edges/arrow-edge";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
@@ -71,7 +72,6 @@ const Flow3D: React.FC = () => {
               const EdgeNode = edgeIdToFCDict[edgeId as EdgeIdToFCDictKeys];
               return <EdgeNode {...edgeProps} />;
             })}
-
             {!viewContext?.freezeOrbitControl ? <OrbitControls /> : null}
           </Canvas>
         ) : null}

@@ -1,3 +1,4 @@
+import arrowEdge from "./edges/arrow-edge";
 import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/bucket";
@@ -20,7 +21,8 @@ export const nodeIdToFCDict = {
 
 export const edgeIdToFCDict = {
   "line-edge": LineEdge,
-  "dash-edge": DashEdge
+  "dash-edge": DashEdge,
+  "arrow-edge": arrowEdge
 } as const;
 
 export type  EdgeIdToFCDictKeys = keyof typeof edgeIdToFCDict;
