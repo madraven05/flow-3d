@@ -1,0 +1,11 @@
+Model Information:
+* title:	Grandpa's Wifi Router (free game-ready asset)
+* source:	https://sketchfab.com/3d-models/grandpas-wifi-router-free-game-ready-asset-3e2b5b7d362c4dd5bedae92de2fa548f
+* author:	Dominik Biały (https://sketchfab.com/crazyyuan)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Grandpa's Wifi Router (free game-ready asset)" (https://sketchfab.com/3d-models/grandpas-wifi-router-free-game-ready-asset-3e2b5b7d362c4dd5bedae92de2fa548f) by Dominik Biały (https://sketchfab.com/crazyyuan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

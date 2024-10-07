@@ -1,0 +1,11 @@
+Model Information:
+* title:	UNIVAC Computer
+* source:	https://sketchfab.com/3d-models/univac-computer-2a5241d9d24c4e129d6dadc0b0734006
+* author:	sudreyskr (https://sketchfab.com/sudreyskr)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "UNIVAC Computer" (https://sketchfab.com/3d-models/univac-computer-2a5241d9d24c4e129d6dadc0b0734006) by sudreyskr (https://sketchfab.com/sudreyskr) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
