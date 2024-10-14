@@ -28,7 +28,7 @@ const Bucket: React.FC<Flow3DNode> = ({...props}) => {
   return (
     <group {...props} dispose={null}>
       <group position={[0,-0.5, 0]} scale={0.01}>
-        <mesh geometry={nodes.musorka_Material_0.geometry} material={new THREE.MeshPhongMaterial({color: "orange"})} position={[0, 36.07, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[20, 18, 37]} />
+        <mesh castShadow geometry={nodes.musorka_Material_0.geometry} material={new THREE.MeshPhongMaterial({color: "orange"})} position={[0, 36.07, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[20, 18, 37]} />
       </group>
     </group>
   )

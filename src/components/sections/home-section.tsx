@@ -6,6 +6,7 @@ interface HomeSectionProps {
   gradient: string;
   canvas: ReactNode;
   children: ReactNode;
+  direction?: "right" | "left";
 }
 
 const HomeSection: React.FC<HomeSectionProps> = ({
@@ -13,6 +14,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({
   canvas,
   gradient,
   children,
+  direction = "right",
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -23,15 +25,26 @@ const HomeSection: React.FC<HomeSectionProps> = ({
     <motion.div
       ref={sectionRef}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className={`sticky top-0 w-full ${gradient} overflow-x-hidden min-h-screen text-white lg:flex lg:flex-wrap-reverse justify-between items-center`}
+      className={`w-full bg-gradient-to-tr from-white to-orange-200  p-10 overflow-x-hidden min-h-screen ${
+        direction === 'right' ? `lg:flex` : `lg:flex lg:flex-row-reverse`
+      } justify-between items-center`}
     >
       {/* R3F Canvas */}
-      <div className="w-full absolute lg:static lg:w-1/2 lg:h-screen">{canvas}</div>
+      <div className="w-full absolute lg:static lg:w-1/2 lg:h-screen">
+        {canvas}
+      </div>
 
       {/* Text */}
       <motion.div
         ref={contentRef}
-        className={`${isContentInView ? 'opacity-100 scale-100': 'opacity-0 scale-0'} ease-in-out transition duration-1000 transform  flex flex-col bg-200 gap-5 lg:w-1/2 lg:h-2/3 h-screen w-full p-14 lg:rounded-tl-3xl lg:rounded-bl-3xl bg-rose-200/10 backdrop-blur-md lg:backdrop-blur-md justify-center items-start`}
+        className={`${
+          isContentInView ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        } ease-in-out transition duration-1000  flex flex-col bg-200 gap-5 lg:w-1/2 lg:h-2/3 h-screen w-full lg:p-14 p-5 
+        ${
+          direction === 'right'
+            ? `lg:rounded-tl-3xl lg:rounded-bl-3xl`
+            : `lg:rounded-tr-3xl lg:rounded-br-3xl`
+        } backdrop-blur-md lg:backdrop-blur-md justify-center items-start`}
       >
         {children}
       </motion.div>

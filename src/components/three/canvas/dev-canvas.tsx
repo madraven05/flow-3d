@@ -7,7 +7,7 @@ const DevCanvas = () => {
     <Canvas camera={{ position: [0, 0, 20] }} shadows>
       <ambientLight intensity={1} />
       <directionalLight intensity={5} position={[3, 1, 4]} />
-      <DevScene />
+      <DevScene direction="right" scrollRange={[0.75,1]}/>
     </Canvas>
   );
 };

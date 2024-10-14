@@ -7,7 +7,7 @@ const FeaturesCanvas:React.FC = () => {
     <Canvas camera={{ position: [0, 0, 20] }} shadows>
       <ambientLight intensity={1} />
       <directionalLight intensity={5} position={[3, 1, 4]} />
-      <FeaturesScene />
+      <FeaturesScene scrollRange={[0.25,0.50]} direction="right"/>
     </Canvas>
   );
 };

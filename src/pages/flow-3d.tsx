@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, OrthographicCamera } from "@react-three/drei";
+import { OrbitControls, OrthographicCamera, Plane } from "@react-three/drei";
 import {
   edgeIdToFCDict,
   EdgeIdToFCDictKeys,
@@ -16,6 +16,11 @@ import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
 import ArrowEdge from "../components/three/edges/arrow-edge";
+import {
+  MeshLambertMaterial,
+  MeshPhongMaterial,
+  MeshStandardMaterial,
+} from "three";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
@@ -49,9 +54,11 @@ const Flow3D: React.FC = () => {
               near={0.1}
               far={1000}
             />
-            <ambientLight />
-            <directionalLight position={[-10, 10, 10]} />
-            <GridPlane
+            <ambientLight intensity={0.5} />
+            <directionalLight intensity={2} castShadow position={[5, 5, 8]} />
+            <Plane
+              material={new MeshStandardMaterial({ color:"#ffffffa0", transparent: true })}
+              castShadow
               receiveShadow
               position={[0, -0.5, 0]}
               args={[25, 25]}

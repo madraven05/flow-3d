@@ -8,12 +8,15 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion-3d";
 import { GroupProps, ThreeEvent } from "@react-three/fiber";
 
-interface with3DSectionAnimationProps {}
+interface with3DSectionAnimationProps {
+    direction?: "left" | "right"
+    scrollRange?: number[]
+}
 
 const with3DSectionAnimation = <P extends object>(
   Model: React.ComponentType<P>
 ) => {
-  return ({ ...props }: P & with3DSectionAnimationProps) => {
+  return ({ direction, scrollRange = [0,1], ...props }: P & with3DSectionAnimationProps) => {
     const { scrollYProgress } = useScroll();
 
     const ref = useRef<GroupProps>(null);
@@ -21,16 +24,21 @@ const with3DSectionAnimation = <P extends object>(
     const mouseX: MotionValue<number> = useMotionValue(0);
     const mouseY: MotionValue<number> = useMotionValue(0);
 
-    const rotateX = useTransform(
+    const mouseRotateX = useTransform(
       mouseY,
       [-1, 1],
       [Math.PI / 16, -Math.PI / 16]
     );
-    const rotateY = useTransform(
+    const mouseRotateY = useTransform(
       mouseX,
       [-1, 1],
       [-Math.PI / 16, Math.PI / 16]
     );
+    const scrollTranslateX = useTransform(
+        scrollYProgress,
+        scrollRange,
+        direction === 'left' ? [-15, 0] : [15,0]
+    )
 
     const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
       const { clientX, clientY } = e;
@@ -45,9 +53,12 @@ const with3DSectionAnimation = <P extends object>(
     return (
       <motion.group
         ref={ref}
-        rotation-x={rotateX} // Rotate based on mouse movement
-        rotation-y={rotateY}
+        initial={{x : direction === 'left' ? -10 : 10}}
+        rotation-x={mouseRotateX} // Rotate based on mouse movement
+        rotation-y={mouseRotateY}
+        position-x={scrollTranslateX}
         whileHover={{ scale: 1.1 }}
+        
         onPointerMove={handlePointerMove}
       >
         <Model {...(props as P)} />

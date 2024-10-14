@@ -4,14 +4,22 @@ import FeaturesCanvas from "../components/three/canvas/features-canvas";
 import HomeSection from "../components/sections/home-section";
 import UseCaseCanvas from "../components/three/canvas/use-case-canvas";
 import DevCanvas from "../components/three/canvas/dev-canvas";
+import FeatureBullet from "../components/common/feature-bullet";
 
 const Home: React.FC = () => {
+  const features = [
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+  ];
+
   return (
-    <div className="">
+    <div className="flex flex-col text-gray-700">
       {/* Hero section */}
       <HomeSection
-      idx={1}
-        gradient="bg-gradient-to-r from-slate-900 to-rose-400"
+        idx={1}
+        gradient="bg-gradient-to-br from-50% from-orange-200/50 to-orange-400/50"
         canvas={<HeroCanvas />}
       >
         <h1 className="text-3xl font-extrabold">Flow3D</h1>
@@ -31,32 +39,21 @@ const Home: React.FC = () => {
 
       {/* Features */}
       <HomeSection
-      idx={2}
-        gradient={"bg-gradient-to-r from-slate-900 to-violet-400"}
+        direction="left"
+        idx={2}
+        gradient={"bg-gradient-to-tr from-50% from-orange-200/50 to-orange-400/50"}
         canvas={<FeaturesCanvas />}
       >
         <h1 className="text-3xl font-extrabold">Features</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit
-          eius vero ea illum voluptate ut quos soluta velit eveniet. Assumenda
-          ducimus, maiores iusto dolorem tenetur obcaecati autem ullam illum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit
-          eius vero ea illum voluptate ut quos soluta velit eveniet. Assumenda
-          ducimus, maiores iusto dolorem tenetur obcaecati autem ullam illum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit
-          eius vero ea illum voluptate ut quos soluta velit eveniet. Assumenda
-          ducimus, maiores iusto dolorem tenetur obcaecati autem ullam illum.
-        </p>
+        {features.map((feature, idx) => (
+          <FeatureBullet idx={idx + 1} feature={feature} />
+        ))}
       </HomeSection>
 
       {/* Use cases */}
       <HomeSection
-      idx={3}
-        gradient="bg-gradient-to-r from-gray-900 to-teal-400"
+        idx={3}
+        gradient="bg-gradient-to-br from-50%  to-orange-400/50"
         canvas={<UseCaseCanvas />}
       >
         <h1 className="text-3xl font-extrabold">Use cases</h1>
@@ -70,8 +67,9 @@ const Home: React.FC = () => {
 
       {/* Dev */}
       <HomeSection
-      idx={4}
-        gradient="bg-gradient-to-r from-slate-900 to-cyan-400"
+        direction="left"
+        idx={4}
+        gradient="bg-gradient-to-tr from-50% from-orange-200/50 to-orange-400/50"
         canvas={<DevCanvas />}
       >
         <h1 className="text-3xl font-extrabold">Contributing</h1>
