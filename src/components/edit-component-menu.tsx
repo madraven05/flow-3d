@@ -119,7 +119,7 @@ const EditComponentMenu = () => {
     e: React.ChangeEvent<HTMLInputElement>,
     idx: 0 | 1 | 2
   ) => {
-    const updatedValues: [number, number, number] = [...positionValues];
+    const updatedValues: [number, number, number] = [...rotationValues];
     updatedValues[idx] = Number(e.target.value);
     setRotationValues(updatedValues);
 

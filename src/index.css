@@ -10,6 +10,7 @@ body {
 
 p {
   @apply font-space-mono;
+  @apply text-sm;
 }
 
 h1, h2, h3 {

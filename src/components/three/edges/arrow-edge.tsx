@@ -37,8 +37,9 @@ const ArrowEdge: React.FC<Flow3DArrowEdge> = ({
   }, [points]);
 
   return (
-    <group {...props} key={guuid}>
+    <group castShadow {...props} key={guuid}>
       <Line points={points} color={color} lineWidth={width} />
+      
       <Cone
         args={[0.1, 0.3]}
         position={points[1] as [number, number, number]}

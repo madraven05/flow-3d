@@ -40,20 +40,23 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
   const { nodes, materials } = useGLTF("/mobile/scene.gltf") as GLTFResult;
   return (
     <group {...props}>
-      <group scale={1.5}  dispose={null}>
+      <group scale={1.5} dispose={null}>
         <group rotation={[-Math.PI / 4, 0, 0]}>
           <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
             <group position={[0, 43.978, 0]} rotation={[Math.PI / 4, 0, 0]}>
               <mesh
+                castShadow
                 geometry={nodes.Phone_Case_PhoneCase_Mat_0.geometry}
                 material={materials.PhoneCase_Mat}
               />
               <mesh
+                castShadow
                 geometry={nodes.Phone_Case_PhoneFace_Mat_0.geometry}
                 material={materials.PhoneFace_Mat}
               />
             </group>
             <mesh
+              castShadow
               geometry={nodes.Phone_Camera_PhoneCase_Mat_0.geometry}
               material={materials.PhoneCase_Mat}
               position={[8.421, 57.722, -17.875]}
@@ -61,6 +64,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={[0.889, 1, 1]}
             />
             <mesh
+              castShadow
               geometry={nodes.Power_Button_PhoneButton_Mat_0.geometry}
               material={materials.PhoneButton_Mat}
               position={[15.24, 54.694, -10.453]}
@@ -68,6 +72,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={[1, 1, 1.24]}
             />
             <mesh
+              castShadow
               geometry={nodes.Volume_Up_PhoneButton_Mat_0.geometry}
               material={materials.PhoneButton_Mat}
               position={[-15.122, 54.492, -10.657]}
@@ -75,6 +80,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={[1, 1, 0.793]}
             />
             <mesh
+              castShadow
               geometry={nodes.Volume_Down_PhoneButton_Mat_0.geometry}
               material={materials.PhoneButton_Mat}
               position={[-15.121, 51.118, -7.296]}
@@ -82,6 +88,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={[1, 1, 0.793]}
             />
             <mesh
+              castShadow
               geometry={nodes.Camera_1_PhoneFace_Mat_0.geometry}
               material={materials.PhoneFace_Mat}
               position={[9.743, 58.839, -20.064]}
@@ -89,6 +96,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={1.696}
             />
             <mesh
+              castShadow
               geometry={nodes.Camera_2_PhoneFace_Mat_0.geometry}
               material={materials.PhoneFace_Mat}
               position={[9.743, 55.578, -16.803]}
@@ -96,6 +104,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={1.696}
             />
             <mesh
+              castShadow
               geometry={nodes.Camera_Light_Camera_Light1_0.geometry}
               material={materials.Camera_Light1}
               position={[6.831, 57.23, -18.455]}
@@ -103,6 +112,7 @@ const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {
               scale={0.875}
             />
             <mesh
+              castShadow
               geometry={nodes.Camera_Front_PhoneButton_Mat_0.geometry}
               material={materials.PhoneButton_Mat}
               position={[-0.421, 66.193, -18.692]}
