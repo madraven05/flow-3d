@@ -56,8 +56,7 @@ const Flow3D: React.FC = () => {
             />
             <ambientLight intensity={0.5} />
             <directionalLight intensity={2} castShadow position={[5, 5, 8]} />
-            <Plane
-              material={new MeshStandardMaterial({ color:"#ffffffa0", transparent: true })}
+            <GridPlane
               castShadow
               receiveShadow
               position={[0, -0.5, 0]}

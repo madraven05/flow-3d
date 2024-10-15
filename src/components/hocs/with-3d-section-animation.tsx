@@ -53,10 +53,8 @@ const with3DSectionAnimation = <P extends object>(
     return (
       <motion.group
         ref={ref}
-        initial={{x : direction === 'left' ? -10 : 10}}
         rotation-x={mouseRotateX} // Rotate based on mouse movement
         rotation-y={mouseRotateY}
-        position-x={scrollTranslateX}
         whileHover={{ scale: 1.1 }}
         
         onPointerMove={handlePointerMove}

@@ -3,6 +3,7 @@ import { AnimatedSceneProps } from "./hero-mobile-scene";
 import { Folder } from "../../assets/folder";
 import * as THREE from "three";
 import gsap from "gsap";
+import with3DSectionAnimation from "../../../hocs/with-3d-section-animation";
 
 const FolderQueueScene: React.FC<AnimatedSceneProps> = ({
   triggerAnimation,
@@ -121,7 +122,7 @@ const FolderQueueScene: React.FC<AnimatedSceneProps> = ({
       // exit animation
       tl.to(groupRef.current!.position, {
         x: 40,
-        duration: 1
+        duration: 1,
       });
     }
   }, [triggerAnimation]);
@@ -144,4 +145,24 @@ const FolderQueueScene: React.FC<AnimatedSceneProps> = ({
   );
 };
 
+const FolderQueueStatic: React.FC = () => {
+  return (
+    <group scale={0.4} position={[-10, 3, 0]}>
+      <group scale={1} position={[0, 0, 0]}>
+        <Folder />
+      </group>
+      <group scale={1} position={[-10, 0, 0]}>
+        <Folder />
+      </group>
+      <group scale={1} position={[-5, 0, 0]}>
+        <Folder />
+      </group>
+      <group scale={1} position={[5, 0, 0]}>
+        <Folder />
+      </group>
+    </group>
+  );
+};
+
+export const FolderQueueStaticScene = with3DSectionAnimation(FolderQueueStatic);
 export default FolderQueueScene;

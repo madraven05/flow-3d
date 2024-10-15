@@ -28,7 +28,6 @@ const HeroCanvas = () => {
       <FolderQueueScene triggerAnimation={triggerQueueAnimation} setNextAnimationTrigger={setTriggerServerAnimation}/>
       <ServerScene triggerAnimation={triggerServerAnimation} setNextAnimationTrigger={setTriggerDataAnimation}/>
       <DataScene triggerAnimation={triggerDataAnimation} setNextAnimationTrigger={setShowCover}/>
-
       <FinalScene showScene={showCover}/>
     </Canvas>
   );

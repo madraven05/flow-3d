@@ -5,15 +5,15 @@ import HomeSection from "../components/sections/home-section";
 import UseCaseCanvas from "../components/three/canvas/use-case-canvas";
 import DevCanvas from "../components/three/canvas/dev-canvas";
 import FeatureBullet from "../components/common/feature-bullet";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
-  const features = [
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
-  ];
-
+  // const features = [
+  //   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+  //   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+  //   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+  //   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. At fugit eius vero ea illum voluptate ut quos soluta velit eveniet",
+  // ];
   return (
     <div className="flex flex-col text-gray-700">
       {/* Hero section */}
@@ -31,14 +31,14 @@ const Home: React.FC = () => {
           intuitive visuals.
         </p>
         <div>
-          <button className="bg-orange-300/70 p-3 font-space-mono font-semibold rounded-lg">
+          <Link to={"/flow-3d"} className="bg-orange-300/70 p-3 shadow-md hover:-translate-y-0.5 focus:shadow-inner transition duration-200 ease-in-out font-space-mono font-semibold rounded-lg">
             Get Started
-          </button>
+          </Link>
         </div>
       </HomeSection>
 
       {/* Features */}
-      <HomeSection
+      {/* <HomeSection
         direction="left"
         idx={2}
         gradient={"bg-gradient-to-tr from-50% from-orange-200/50 to-orange-400/50"}
@@ -48,10 +48,10 @@ const Home: React.FC = () => {
         {features.map((feature, idx) => (
           <FeatureBullet idx={idx + 1} feature={feature} />
         ))}
-      </HomeSection>
+      </HomeSection> */}
 
       {/* Use cases */}
-      <HomeSection
+      {/* <HomeSection
         idx={3}
         gradient="bg-gradient-to-br from-50%  to-orange-400/50"
         canvas={<UseCaseCanvas />}
@@ -63,10 +63,10 @@ const Home: React.FC = () => {
           <div className="h-48 w-64 bg-white rounded-lg shadow-md" />
           <div className="h-48 w-64 bg-white rounded-lg shadow-md" />
         </div>
-      </HomeSection>
+      </HomeSection> */}
 
       {/* Dev */}
-      <HomeSection
+      {/* <HomeSection
         direction="left"
         idx={4}
         gradient="bg-gradient-to-tr from-50% from-orange-200/50 to-orange-400/50"
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             Get Started
           </button>
         </div>
-      </HomeSection>
+      </HomeSection> */}
     </div>
   );
 };

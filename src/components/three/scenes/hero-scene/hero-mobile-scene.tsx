@@ -6,6 +6,7 @@ import { Love } from "../../assets/love";
 import { motion } from "framer-motion-3d";
 import * as THREE from "three";
 import gsap from "gsap";
+import with3DSectionAnimation from "../../../hocs/with-3d-section-animation";
 
 export interface AnimatedSceneProps {
   triggerAnimation: boolean;
@@ -110,10 +111,16 @@ const HeroMobileScene: React.FC<AnimatedSceneProps> = ({
         x: 0,
         y: 0,
         z: 0,
-        delay: 1,
+        delay: 0.5,
       });
     }
-  }, [triggerAnimation]);
+  }, [
+    triggerAnimation,
+    chatRef.current,
+    mobileRef.current,
+    likeRef.current,
+    loveRef.current,
+  ]);
 
   return (
     <group
@@ -147,4 +154,27 @@ const HeroMobileScene: React.FC<AnimatedSceneProps> = ({
   );
 };
 
+const MobileStatic:React.FC = () => {
+  return (
+    <group scale={0.4} position={[0, -3, 0]}>
+      <group scale={20} position={[0, -15, 0]} rotation={[Math.PI / 7, 0, 0]}>
+        <HeroMobile />
+      </group>
+
+      <group position={[3, 0, 0]} scale={1}>
+        <Chat />
+      </group>
+
+      <group scale={1.5} position={[-4, 0, 0]}>
+        <Like />
+      </group>
+
+      <group scale={1.5} position={[-1, 6, 0]} key={"love"}>
+        <Love />
+      </group>
+    </group>
+  );
+};
+
+export const MobileStaticScene = with3DSectionAnimation(MobileStatic);
 export default HeroMobileScene;
