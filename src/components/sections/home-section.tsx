@@ -25,10 +25,10 @@ const HomeSection: React.FC<HomeSectionProps> = ({
     <motion.div
       ref={sectionRef}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className={`w-full bg-gradient-to-tr from-white to-orange-200  p-10 overflow-x-hidden min-h-screen ${
+      className={`w-full bg-primary p-10 overflow-x-hidden min-h-screen ${
         direction === 'right' ? `lg:flex` : `lg:flex lg:flex-row-reverse`
       } justify-between items-center`}
-    >
+    > 
       {/* R3F Canvas */}
       <div className="w-full absolute lg:static lg:w-1/2 lg:h-screen">
         {canvas}

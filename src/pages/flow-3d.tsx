@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, OrthographicCamera, Plane } from "@react-three/drei";
+import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import {
   edgeIdToFCDict,
   EdgeIdToFCDictKeys,
@@ -15,12 +15,6 @@ import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
-import ArrowEdge from "../components/three/edges/arrow-edge";
-import {
-  MeshLambertMaterial,
-  MeshPhongMaterial,
-  MeshStandardMaterial,
-} from "three";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
@@ -65,18 +59,18 @@ const Flow3D: React.FC = () => {
             />
 
             {/* Render nodes */}
-            {nodes.map((nodeProps) => {
+            {nodes.map((nodeProps, idx) => {
               const componentId = nodeProps.componentId;
               const SceneNode =
                 nodeIdToFCDict[componentId as NodeIdToFCDictKeys];
-              return <SceneNode {...nodeProps} />;
+              return <SceneNode key={idx} {...nodeProps} />;
             })}
 
             {/* Render edges */}
-            {edges.map((edgeProps) => {
+            {edges.map((edgeProps, idx) => {
               const edgeId = edgeProps.edgeId;
               const EdgeNode = edgeIdToFCDict[edgeId as EdgeIdToFCDictKeys];
-              return <EdgeNode {...edgeProps} />;
+              return <EdgeNode key={idx} {...edgeProps} />;
             })}
             {!viewContext?.freezeOrbitControl ? <OrbitControls /> : null}
           </Canvas>

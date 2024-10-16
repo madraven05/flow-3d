@@ -81,6 +81,7 @@ const withEditNodeOptions = <P extends object>(
           viewContext?.currEditMode === "move" &&
           viewContext.componentGuuid
         ) {
+          setHovered(false);
           viewContext?.setFreezeOrbitControl(true);
           const newPosition = getXZDragPosition(x,y);
 

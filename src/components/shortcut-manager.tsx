@@ -34,7 +34,6 @@ const ShortcutManager: React.FC<ShortcutManagerProps> = ({
         case "Delete":
           const guuid = viewContext?.componentGuuid;
           if (guuid && viewContext.currEditMode === "select") {
-            console.log("deleting", guuid);
             dispatch(deleteNodeFromScene({ guuid: guuid }));
           }
           break;

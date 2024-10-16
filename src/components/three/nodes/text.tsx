@@ -1,4 +1,10 @@
-import React, { ChangeEvent, ReactNode, useContext, useEffect, useState } from "react";
+import React, {
+  ChangeEvent,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Flow3DNode, Flow3DNodes, Flow3DNodeTextNode } from "../../models/node";
 import { Html, Plane, Text } from "@react-three/drei";
 import { MeshPhongMaterial, MeshStandardMaterial } from "three";
@@ -7,10 +13,7 @@ import { ViewContext } from "../../context/view-context";
 import { useAppDispatch } from "../../hooks/use-app-dispatch";
 import { updateNodeProperties } from "../../redux/features/nodes/node-actions";
 
-const TextNode: React.FC<Flow3DNodeTextNode> = ({
-  color,
-  ...props
-}) => {
+const TextNode: React.FC<Flow3DNodeTextNode> = ({ color, ...props }) => {
   const [value, setValue] = useState(props.text);
   const [showEditTextInput, setShowEditTextMenu] = useState(false);
   const viewContext = useContext(ViewContext);
@@ -38,14 +41,7 @@ const TextNode: React.FC<Flow3DNodeTextNode> = ({
   return (
     <group onDoubleClick={handleEditingText} {...props}>
       {showEditTextInput ? (
-        <Html
-          position={[
-            props.position![0]+1,
-            props.position![1],
-            props.position![2]+2,
-          ]}
-          className=""
-        >
+        <Html position={[0, 1, 1]} className="">
           <input
             value={value}
             onChange={handleOnChangeText}

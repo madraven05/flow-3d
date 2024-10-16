@@ -31,7 +31,6 @@ const HeroMobileScene: React.FC<AnimatedSceneProps> = ({
       likeRef.current &&
       loveRef.current
     ) {
-      console.log("first");
       const tl = gsap.timeline({
         repeat: 0,
         yoyo: true,
