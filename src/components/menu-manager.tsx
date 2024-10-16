@@ -2,7 +2,11 @@ import { FaImage, FaSave, FaUpload } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle } from "react-icons/bi";
-import { MdArrowRightAlt, MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
+import {
+  MdArrowRightAlt,
+  MdCheckBoxOutlineBlank,
+  MdDelete,
+} from "react-icons/md";
 import MenuButton from "./common/menu-button";
 import {
   IoClose,
@@ -17,8 +21,9 @@ import { CiMobile3 } from "react-icons/ci";
 import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
+import { ChangeEvent, useState } from "react";
 
-const componentsData = [
+const nodesData = [
   {
     id: "curved-box",
     icon: <MdCheckBoxOutlineBlank className="text-4xl" />,
@@ -80,12 +85,28 @@ interface MenuManagerProps {
 }
 
 const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
+  const [showNodes, setShowNodes] = useState(nodesData.slice(0, 4));
+
   const handleOpenMenu = () => {
     setOpenMenu(true);
   };
 
   const handleCloseMenu = () => {
     setOpenMenu(false);
+  };
+
+  const handleSearchNodes = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 0) {
+      setShowNodes(
+        nodesData.filter((node) =>
+          node.label.toLowerCase().includes(e.target.value.toLowerCase())
+        )
+      );
+    } else {
+      setShowNodes(nodesData.slice(0, 4));
+    }
   };
 
   return (
@@ -113,9 +134,9 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         {/* Nodes */}
         <h3 className="uppercase font-semibold -mt-4">Nodes</h3>
         <HorizontalLine />
-        <Input placeholder="Search" />
+        <Input placeholder="Search" onChange={handleSearchNodes} />
         <div className="flex flex-wrap gap-5 items-center justify-center">
-          {componentsData.map((comp) => (
+          {showNodes.map((comp) => (
             <ComponentCard key={comp.id} type="node" componentId={comp.id}>
               {comp.icon}
               <p className="text-xs">{comp.label}</p>

@@ -186,7 +186,7 @@ const withEditEdgeOptions = <P extends object>(
               <Html>
                 <button
                   {...startBind()}
-                  className="h-2.5 w-2.5 rounded-full bg-purple-400 outline outline-black"
+                  className="h-2.5 w-2.5 rounded-full outline-green-dark outline bg-yellow-light"
                 />
               </Html>
             </group>
@@ -194,7 +194,7 @@ const withEditEdgeOptions = <P extends object>(
               <Html>
                 <button
                   {...endBind()}
-                  className="h-2.5 w-2.5 rounded-full bg-purple-400 outline outline-black"
+                  className="h-2.5 w-2.5 rounded-full outline-green-dark outline bg-yellow-light"
                 />
               </Html>
             </group>
@@ -202,7 +202,7 @@ const withEditEdgeOptions = <P extends object>(
             {/* dummy line */}
             <Line
               lineWidth={2}
-              color={"purple"}
+              color={"#026670"}
               dashed={true}
               dashSize={0.3}
               gapSize={0.2}
