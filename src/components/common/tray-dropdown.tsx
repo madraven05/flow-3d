@@ -28,7 +28,7 @@ const TrayDropdown: React.FC<TrayDropdownProps> = ({ data }) => {
       <MenuItems
         transition
         className={
-          "lg:mt-2 rounded-lg text-sm bg-orange-100/70 py-2 px-3 flex flex-col gap-2 backdrop-blur-sm transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+          "lg:mt-2 rounded-lg text-sm bg-primary/70 py-2 px-3 flex flex-col gap-2 backdrop-blur-sm transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
         }
         anchor="bottom"
       >

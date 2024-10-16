@@ -94,18 +94,18 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         onClick={handleOpenMenu}
         className={`${
           openMenu ? "hidden" : ""
-        } z-10 fixed p-2 top-20 left-10 text-3xl text-gray-500 rounded-full bg-orange-800/10`}
+        } z-10 fixed p-2 top-20 bg-primary left-10 text-3xl rounded-full`}
       >
         <IoMenuOutline />
       </MenuButton>
       <div
         className={`${
           openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
-        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-20 bottom-20 overflow-auto lg:top-20 flex flex-col  gap-3 backdrop-blur-xl  py-10 px-6 shadow-lg bg-orange-100/50 rounded-md`}
+        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-20 bottom-20 overflow-auto lg:top-20 flex flex-col  gap-3  py-10 px-6 bg-primary shadow-lg rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
-          className="fixed right-5 top-5 text-xl text-gray-500 rounded-full bg-orange-800/10 backdrop-blur-md p-2"
+          className="fixed right-5 top-5 text-xl rounded-full p-2"
         >
           <IoClose />
         </MenuButton>
@@ -116,7 +116,7 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         <Input placeholder="Search" />
         <div className="flex flex-wrap gap-5 items-center justify-center">
           {componentsData.map((comp) => (
-            <ComponentCard type="node" componentId={comp.id}>
+            <ComponentCard key={comp.id} type="node" componentId={comp.id}>
               {comp.icon}
               <p className="text-xs">{comp.label}</p>
             </ComponentCard>
@@ -130,7 +130,7 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         <Input placeholder="Search" />
         <div className="flex flex-wrap gap-5 items-center justify-center">
           {edgesData.map((edge) => (
-            <ComponentCard type="edge" componentId={edge.id}>
+            <ComponentCard key={edge.id} type="edge" componentId={edge.id}>
               {edge.icon}
               <p className="text-xs">{edge.label}</p>
             </ComponentCard>
@@ -140,19 +140,19 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
 
         {/* File menu */}
         <div className="text-sm flex flex-col gap-3">
-          <MenuButton>
+          <MenuButton disabled>
             <FaSave />
             <p>Save</p>
           </MenuButton>
-          <MenuButton>
+          <MenuButton disabled>
             <FaImage />
             <p>Export as</p>
           </MenuButton>
-          <MenuButton>
+          <MenuButton disabled>
             <FaUpload />
             <p>Import JSON</p>
           </MenuButton>
-          <MenuButton>
+          <MenuButton disabled>
             <FaDownload />
             <p>Download JSON</p>
           </MenuButton>

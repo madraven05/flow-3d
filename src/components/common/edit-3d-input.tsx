@@ -23,31 +23,34 @@ const Edit3DInput: React.FC<Edit3DInputProps> = ({
         <div className="flex flex-col items-center -mt-4 text-xs gap-0.5">
           <p>X</p>
           <Input
+            step={0.25}
             onChange={(e) => onChange(e, 0)}
             name={`${name}_X`}
             type="number"
             value={values[0]}
-            className="w-10 h-7 rounded-md bg-black/10 p-1 text-center"
+            className="w-10 h-7 text-xs font-mono rounded-md bg-black/10 p-1 text-center"
           />
         </div>
         <div className="flex flex-col items-center -mt-4 text-xs gap-0.5">
           <p>Y</p>
           <Input
+            step={0.25}
             onChange={(e) => onChange(e, 1)}
             type="number"
             name={`${name}_Y`}
             value={values[1]}
-            className="w-10 h-7 rounded-md bg-black/10 p-1 text-center"
+            className="w-10 h-7 text-xs font-mono rounded-md bg-black/10 p-1 text-center"
           />
         </div>
         <div className="flex flex-col items-center -mt-4 text-xs gap-0.5">
           <p>Z</p>
           <Input
+            step={0.25}
             onChange={(e) => onChange(e, 2)}
             type="number"
             name={`${name}_Z`}
             value={values[2]}
-            className="w-10 h-7 rounded-md bg-black/10 p-1 text-center"
+            className="w-10 h-7 text-xs font-mono rounded-md bg-black/10 p-1 text-center"
           />
         </div>
       </div>

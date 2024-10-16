@@ -17,7 +17,6 @@ const FolderQueueScene: React.FC<AnimatedSceneProps> = ({
 
   useEffect(() => {
     if (triggerAnimation) {
-      console.log("animation trigger");
       const tl = gsap.timeline({
         repeat: 0,
         yoyo: true,

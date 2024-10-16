@@ -20,7 +20,7 @@ const ModeIcon = () => {
   }, [viewContext?.currEditMode])
 
   return (
-    <div className="fixed text-gray-600 bottom-20 left-5 lg:bottom-10 lg:left-10 z-20 p-4 text-lg shadow-lg bg-orange-100/50 backdrop-blur-md rounded-full">
+    <div className="fixed text-gray-600 bottom-20 left-5 lg:bottom-10 lg:left-10 p-4 text-lg shadow-lg bg-primary/50 backdrop-blur-md rounded-full">
       {modeDict[currMode]}
     </div>
   );
