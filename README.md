@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
+# Flow3D
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Flow3D is an interactive web-based tool for creating 3D cloud architecture diagrams. Built with React, Redux thunk, React Three Fiber, Framer Motion, and GSAP, Flow3D allows users to visualize, design, and edit cloud infrastructure in a 3D space with drag-and-drop functionalities and other editing tools.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Drag and Drop:** Easily move, place, and connect components in a 3D environment.
+- **3D Visualization:** Use React Three Fiber to create immersive 3D architecture diagrams.
+- **Smooth Animations:** Seamless transitions and animations powered by Framer Motion and GSAP.
+- **State Management:** Efficient state management with Redux and Redux Thunk for asynchronous actions.
+- **Fast Development with Vite:** Lightning-fast development experience using React Vite for quick builds and optimized performance.
+- **Editing Tools:** Modify components, create connections, and adjust positions in real time.
+- **Responsive Design:** Works on various screen sizes and devices.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: A JavaScript library for building user interfaces.
+- **Vite**: A build tool that provides fast and optimized development for React applications.
+- **Redux**: State management for predictable state updates.
+- **Redux Thunk**: Middleware for handling asynchronous logic in Redux.
+- **React Three Fiber**: A React renderer for Three.js, enabling 3D web applications.
+- **Framer Motion**: A library for declarative animations in React.
+- **GSAP**: GreenSock Animation Platform for high-performance animations.
+- **Tailwind CSS**: For styling and responsive design.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/madraven05/flow-3d.git
+2. Navigate to the project directory:
+    ```bash
+    cd flow3d
+    ```
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+4. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- After the server starts, navigate to http://localhost:5173
+- Begin dragging and dropping components to create your 3D architecture diagram
+- Use editing tools to connect, modify, or remove components
+- Save and export your diagrams for later use
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Contribution
+
+Contributions are welcome! If you encounter any issues or have ideas for enhancements, feel free to create a new issue or open a pull request.
+
+## Contact
+
+For any questions or suggestions, feel free to contact the project owner.
