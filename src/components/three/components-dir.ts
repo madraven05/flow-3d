@@ -3,6 +3,7 @@ import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/aws/bucket";
 import AWSLambda from "./nodes/aws/lambda";
+import Route53 from "./nodes/aws/route-53";
 import sns from "./nodes/aws/sns";
 import sqs from "./nodes/aws/sqs";
 import CurvedBox from "./nodes/curved-box";
@@ -14,22 +15,23 @@ import TextNode from "./nodes/text";
 
 export const nodeIdToFCDict = {
   "curved-box": CurvedBox,
-  "laptop": Laptop,
-  "mobile": Mobile,
-  "bucket": Bucket,
-  "server": Server,
-  "text": TextNode,
-  "database": Database,
-  'sns': sns,
-  'sqs': sqs,
-  'lambda': AWSLambda
+  laptop: Laptop,
+  mobile: Mobile,
+  bucket: Bucket,
+  server: Server,
+  text: TextNode,
+  database: Database,
+  sns: sns,
+  sqs: sqs,
+  lambda: AWSLambda,
+  "route-53": Route53,
 } as const;
 
 export const edgeIdToFCDict = {
   "line-edge": LineEdge,
   "dash-edge": DashEdge,
-  "arrow-edge": arrowEdge
+  "arrow-edge": arrowEdge,
 } as const;
 
-export type  EdgeIdToFCDictKeys = keyof typeof edgeIdToFCDict;
+export type EdgeIdToFCDictKeys = keyof typeof edgeIdToFCDict;
 export type NodeIdToFCDictKeys = keyof typeof nodeIdToFCDict;

@@ -16,6 +16,7 @@ import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
 import AWSLambda from "../components/three/nodes/aws/lambda";
+import Route53 from "../components/three/nodes/aws/route-53";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();

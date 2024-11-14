@@ -3,10 +3,10 @@ import { Flow3DNode } from "../../../models/node";
 import Triangle3D from "../triangle-3d";
 import withEditNodeOptions from "../../../hocs/with-edit-node-options";
 
-const AWSLambda: React.FC<Flow3DNode> = () => {
+const AWSLambda: React.FC<Flow3DNode> = ({...props}) => {
   const color = "#F1893E";
   return (
-    <group>
+    <group {...props}>
       <group rotation={[0, Math.PI / 6, 0]}>
         <mesh>
           <boxGeometry args={[0.2, 0.8, 0.2]} />
