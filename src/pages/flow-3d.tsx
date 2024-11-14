@@ -15,8 +15,6 @@ import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
-import AWSEC2 from "../components/three/nodes/aws/ec2";
-import DynamoDB from "../components/three/nodes/aws/dynamo-db";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
