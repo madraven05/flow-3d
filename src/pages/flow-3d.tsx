@@ -57,7 +57,6 @@ const Flow3D: React.FC = () => {
               args={[25, 25]}
               rotation={[-Math.PI / 2, 0, 0]}
             />
-
             {/* Render nodes */}
             {nodes.map((nodeProps, idx) => {
               const componentId = nodeProps.componentId;
@@ -65,7 +64,6 @@ const Flow3D: React.FC = () => {
                 nodeIdToFCDict[componentId as NodeIdToFCDictKeys];
               return <SceneNode key={idx} {...nodeProps} />;
             })}
-
             {/* Render edges */}
             {edges.map((edgeProps, idx) => {
               const edgeId = edgeProps.edgeId;

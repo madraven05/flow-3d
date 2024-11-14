@@ -11,8 +11,8 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import { Flow3DNode } from '../../models/node'
-import withEditNodeOptions from '../../hocs/with-edit-node-options'
+import { Flow3DNode } from '../../../models/node'
+import withEditNodeOptions from '../../../hocs/with-edit-node-options'
 
 type GLTFResult = GLTF & {
   nodes: {

@@ -1,5 +1,5 @@
 import { FaImage, FaSave, FaUpload } from "react-icons/fa";
-import { FaDownload } from "react-icons/fa6";
+import { FaDownload, FaRegMessage } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle } from "react-icons/bi";
 import {
@@ -22,6 +22,7 @@ import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
+import { SiAmazondynamodb, SiAmazonec2, SiAmazonrds, SiAmazons3, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
 
 const nodesData = [
   {
@@ -41,8 +42,8 @@ const nodesData = [
   },
   {
     id: "bucket",
-    icon: <TbBucket className="text-4xl" />,
-    label: "Bucket",
+    icon: <SiAmazons3 className="text-4xl" />,
+    label: "AWS S3 Bucket",
   },
   {
     id: "server",
@@ -58,6 +59,41 @@ const nodesData = [
     id: "text",
     icon: <IoTextOutline className="text-4xl" />,
     label: "Text",
+  },
+  {
+    id: "sns",
+    icon: <FaRegMessage className="text-4xl" />,
+    label: "AWS SNS",
+  },
+  {
+    id: "sqs",
+    icon: <SiAmazonsqs className="text-4xl" />,
+    label: "AWS SQS",
+  },
+  {
+    id: "lambda",
+    icon: <SiAwslambda className="text-4xl" />,
+    label: "AWS Lambda",
+  },
+  {
+    id: "route-53",
+    icon: <SiNextdns className="text-4xl" />,
+    label: "AWS Route 53",
+  },
+  {
+    id: "ec2",
+    icon: <SiAmazonec2 className="text-4xl" />,
+    label: "AWS EC2",
+  },
+  {
+    id: "dynamo-db",
+    icon: <SiAmazondynamodb className="text-4xl" />,
+    label: "AWS Dynamo DB",
+  },
+  {
+    id: "aws-rds",
+    icon: <SiAmazonrds className="text-4xl" />,
+    label: "AWS RDS",
   },
 ];
 

@@ -12,15 +12,15 @@ const Home: React.FC = () => {
         gradient="bg-gradient-to-br from-50% from-orange-200/50 to-orange-400/50"
         canvas={<HeroCanvas />}
       >
-        <div className=" w-full items-center justify-center flex absolute -z-10 right-20">
+        <div className="w-full items-center justify-center flex absolute -z-10 right-1/2 lg:right-20">
           <div
-            className="h-80 w-80 animate-blob relative left-52 blur-2xl mix-blend-multiply rounded-full bg-yellow-light"
+            className="h-52 w-52 lg:h-80 lg:w-80 animate-blob relative left-52 blur-2xl mix-blend-multiply rounded-full bg-yellow-light"
           />
           <div
-            className="h-64 w-64 animation-delay-2000 animate-blob relative left-20 blur-2xl mix-blend-multiply bottom-20 rounded-full bg-green-light"
+            className="h-44 w-44 lg:h-64 lg:w-64 animation-delay-2000 animate-blob relative left-20 blur-2xl mix-blend-multiply bottom-20 rounded-full bg-green-light"
           />
           <div
-            className="h-72 w-72 animation-delay-4000 animate-blob relative top-20 right-20 blur-2xl mix-blend-multiply rounded-full bg-green-dark/50"
+            className="h-6 lg:h-72 lg:w-72 animation-delay-4000 animate-blob relative top-20 right-20 blur-2xl mix-blend-multiply rounded-full bg-green-dark/50"
           />
         </div>
         <h1 className="text-5xl text-gray-600 font-extrabold">
