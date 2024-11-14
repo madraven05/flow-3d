@@ -18,8 +18,9 @@ const SNS: React.FC<Flow3DNode> = ({ ...props }) => {
           />
           <Triangle3D
             color="#C27EA0"
-            position={[0.2, -0.7, 0.3]}
+            position={[0.288, -0.7, 0.2]}
             rotation={[0, -Math.PI / 3, Math.PI]}
+            width={0.28}
           />
         </group>
         <group position={[0.75, 0.5, 0]}>
@@ -30,8 +31,9 @@ const SNS: React.FC<Flow3DNode> = ({ ...props }) => {
           />
           <Triangle3D
             color="#C27EA0"
-            position={[0.2, -0.7, 0.3]}
+            position={[0.288, -0.7, 0.2]}
             rotation={[0, -Math.PI / 3, Math.PI]}
+            width={0.28}
           />
         </group>
         <group position={[1.55, 0.5, 0]}>
@@ -42,8 +44,9 @@ const SNS: React.FC<Flow3DNode> = ({ ...props }) => {
           />
           <Triangle3D
             color="#C27EA0"
-            position={[0.2, -0.7, 0.3]}
+            position={[0.288, -0.7, 0.2]}
             rotation={[0, -Math.PI / 3, Math.PI]}
+            width={0.28}
           />
         </group>
       </group>

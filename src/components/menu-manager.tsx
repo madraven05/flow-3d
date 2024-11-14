@@ -22,7 +22,7 @@ import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { SiAmazonsqs } from "react-icons/si";
+import { SiAmazonsqs, SiAwslambda } from "react-icons/si";
 
 const nodesData = [
   {
@@ -69,6 +69,11 @@ const nodesData = [
     id: "sqs",
     icon: <SiAmazonsqs className="text-4xl" />,
     label: "AWS SQS",
+  },
+  {
+    id: "lambda",
+    icon: <SiAwslambda className="text-4xl" />,
+    label: "AWS Lambda",
   },
 ];
 

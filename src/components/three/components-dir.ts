@@ -2,6 +2,7 @@ import arrowEdge from "./edges/arrow-edge";
 import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/aws/bucket";
+import AWSLambda from "./nodes/aws/lambda";
 import sns from "./nodes/aws/sns";
 import sqs from "./nodes/aws/sqs";
 import CurvedBox from "./nodes/curved-box";
@@ -20,7 +21,8 @@ export const nodeIdToFCDict = {
   "text": TextNode,
   "database": Database,
   'sns': sns,
-  'sqs': sqs
+  'sqs': sqs,
+  'lambda': AWSLambda
 } as const;
 
 export const edgeIdToFCDict = {
