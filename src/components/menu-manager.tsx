@@ -22,7 +22,7 @@ import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { SiAmazonec2, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
+import { SiAmazondynamodb, SiAmazonec2, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
 
 const nodesData = [
   {
@@ -84,6 +84,11 @@ const nodesData = [
     id: "ec2",
     icon: <SiAmazonec2 className="text-4xl" />,
     label: "AWS EC2",
+  },
+  {
+    id: "dynamo-db",
+    icon: <SiAmazondynamodb className="text-4xl" />,
+    label: "AWS Dynamo DB",
   },
 ];
 

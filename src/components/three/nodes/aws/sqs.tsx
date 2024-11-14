@@ -1,5 +1,6 @@
 import React from "react";
 import { Flow3DNode } from "../../../models/node";
+import withEditEdgeOptions from "../../../hocs/with-edit-edge-options";
 import withEditNodeOptions from "../../../hocs/with-edit-node-options";
 
 const SQS: React.FC<Flow3DNode> = ({ ...props }) => {

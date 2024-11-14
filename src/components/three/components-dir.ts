@@ -13,6 +13,7 @@ import Laptop from "./nodes/laptop";
 import Mobile from "./nodes/mobile";
 import Server from "./nodes/server";
 import TextNode from "./nodes/text";
+import DynamoDB from "./nodes/aws/dynamo-db";
 
 export const nodeIdToFCDict = {
   "curved-box": CurvedBox,
@@ -26,7 +27,8 @@ export const nodeIdToFCDict = {
   sqs: sqs,
   lambda: AWSLambda,
   "route-53": Route53,
-  "ec2": AWSEC2
+  "ec2": AWSEC2,
+  "dynamo-db": DynamoDB
 } as const;
 
 export const edgeIdToFCDict = {
