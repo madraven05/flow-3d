@@ -22,6 +22,7 @@ import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
+import { SiAmazonsqs } from "react-icons/si";
 
 const nodesData = [
   {
@@ -63,6 +64,11 @@ const nodesData = [
     id: "sns",
     icon: <FaRegMessage className="text-4xl" />,
     label: "AWS SNS",
+  },
+  {
+    id: "sqs",
+    icon: <SiAmazonsqs className="text-4xl" />,
+    label: "AWS SQS",
   },
 ];
 

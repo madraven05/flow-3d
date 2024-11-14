@@ -3,6 +3,7 @@ import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
 import Bucket from "./nodes/aws/bucket";
 import sns from "./nodes/aws/sns";
+import sqs from "./nodes/aws/sqs";
 import CurvedBox from "./nodes/curved-box";
 import Database from "./nodes/database";
 import Laptop from "./nodes/laptop";
@@ -19,6 +20,7 @@ export const nodeIdToFCDict = {
   "text": TextNode,
   "database": Database,
   'sns': sns,
+  'sqs': sqs
 } as const;
 
 export const edgeIdToFCDict = {
