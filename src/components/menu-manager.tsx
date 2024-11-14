@@ -1,5 +1,5 @@
 import { FaImage, FaSave, FaUpload } from "react-icons/fa";
-import { FaDownload } from "react-icons/fa6";
+import { FaDownload, FaRegMessage } from "react-icons/fa6";
 import HorizontalLine from "./common/horizontal-line";
 import { BiHelpCircle } from "react-icons/bi";
 import {
@@ -58,6 +58,11 @@ const nodesData = [
     id: "text",
     icon: <IoTextOutline className="text-4xl" />,
     label: "Text",
+  },
+  {
+    id: "sns",
+    icon: <FaRegMessage className="text-4xl" />,
+    label: "AWS SNS",
   },
 ];
 

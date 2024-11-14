@@ -15,6 +15,7 @@ import GridPlane from "../components/three/assets/grid-plane";
 import ModeIcon from "../components/common/mode-icon";
 import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
+import SNS from "../components/three/nodes/aws/sns";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
@@ -65,7 +66,6 @@ const Flow3D: React.FC = () => {
                 nodeIdToFCDict[componentId as NodeIdToFCDictKeys];
               return <SceneNode key={idx} {...nodeProps} />;
             })}
-
             {/* Render edges */}
             {edges.map((edgeProps, idx) => {
               const edgeId = edgeProps.edgeId;

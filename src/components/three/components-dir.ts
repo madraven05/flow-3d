@@ -1,7 +1,8 @@
 import arrowEdge from "./edges/arrow-edge";
 import DashEdge from "./edges/dash-edge";
 import LineEdge from "./edges/line-edge";
-import Bucket from "./nodes/bucket";
+import Bucket from "./nodes/aws/bucket";
+import sns from "./nodes/aws/sns";
 import CurvedBox from "./nodes/curved-box";
 import Database from "./nodes/database";
 import Laptop from "./nodes/laptop";
@@ -17,6 +18,7 @@ export const nodeIdToFCDict = {
   "server": Server,
   "text": TextNode,
   "database": Database,
+  'sns': sns,
 } as const;
 
 export const edgeIdToFCDict = {
