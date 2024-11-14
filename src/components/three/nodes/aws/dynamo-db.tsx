@@ -8,19 +8,19 @@ const DynamoDB: React.FC<Flow3DNode> = ({ ...props }) => {
     <group {...props}>
       <group position={[0, -0.3, 0]}>
         <mesh position={[0, 0, 0]}>
-          <cylinderGeometry args={[0.5, 0.5, 0.2, 9, 1]} />
+          <cylinderGeometry args={[0.6, 0.6, 0.3, 9, 1]} />
           <meshStandardMaterial color={color} flatShading />
         </mesh>
-        <mesh position={[0, 0.25, 0]}>
-          <cylinderGeometry args={[0.5, 0.5, 0.2, 9, 1]} />
+        <mesh position={[0, 0.35, 0]}>
+          <cylinderGeometry args={[0.6, 0.6, 0.3, 9, 1]} />
           <meshStandardMaterial color={color} flatShading />
         </mesh>
-        <mesh position={[0, 0.5, 0]}>
-          <cylinderGeometry args={[0.5, 0.5, 0.2, 9, 1]} />
+        <mesh position={[0, 0.7, 0]}>
+          <cylinderGeometry args={[0.6, 0.6, 0.3, 9, 1]} />
           <meshStandardMaterial color={color} flatShading />
         </mesh>
-        <mesh position={[0, 0.75, 0]}>
-          <cylinderGeometry args={[0.5, 0.5, 0.2, 9, 1]} />
+        <mesh position={[0, 1.05, 0]}>
+          <cylinderGeometry args={[0.6, 0.6, 0.3, 9, 1]} />
           <meshStandardMaterial color={color} flatShading />
         </mesh>
       </group>
