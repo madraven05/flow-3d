@@ -22,7 +22,7 @@ import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
+import { SiAmazonec2, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
 
 const nodesData = [
   {
@@ -79,6 +79,11 @@ const nodesData = [
     id: "route-53",
     icon: <SiNextdns className="text-4xl" />,
     label: "AWS Route 53",
+  },
+  {
+    id: "ec2",
+    icon: <SiAmazonec2 className="text-4xl" />,
+    label: "AWS EC2",
   },
 ];
 

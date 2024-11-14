@@ -6,6 +6,7 @@ import AWSLambda from "./nodes/aws/lambda";
 import Route53 from "./nodes/aws/route-53";
 import sns from "./nodes/aws/sns";
 import sqs from "./nodes/aws/sqs";
+import AWSEC2 from "./nodes/aws/ec2";
 import CurvedBox from "./nodes/curved-box";
 import Database from "./nodes/database";
 import Laptop from "./nodes/laptop";
@@ -25,6 +26,7 @@ export const nodeIdToFCDict = {
   sqs: sqs,
   lambda: AWSLambda,
   "route-53": Route53,
+  "ec2": AWSEC2
 } as const;
 
 export const edgeIdToFCDict = {
