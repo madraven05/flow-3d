@@ -17,12 +17,12 @@ import {
 import ComponentCard from "./common/component-card";
 import Input from "./common/input";
 import { GiLaptop, GiServerRack } from "react-icons/gi";
-import { CiMobile3 } from "react-icons/ci";
+import { CiCloudOn, CiMobile3 } from "react-icons/ci";
 import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { SiAmazondynamodb, SiAmazonec2, SiAmazonrds, SiAmazons3, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
+import { SiAmazondynamodb, SiAmazonec2, SiAmazonrds, SiAmazonroute53, SiAmazons3, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
 
 const nodesData = [
   {
@@ -77,7 +77,7 @@ const nodesData = [
   },
   {
     id: "route-53",
-    icon: <SiNextdns className="text-4xl" />,
+    icon: <SiAmazonroute53 className="text-4xl" />,
     label: "AWS Route 53",
   },
   {
@@ -94,6 +94,11 @@ const nodesData = [
     id: "aws-rds",
     icon: <SiAmazonrds className="text-4xl" />,
     label: "AWS RDS",
+  },
+  {
+    id: "vpc",
+    icon: <CiCloudOn className="text-4xl" />,
+    label: "AWS VPC",
   },
 ];
 
