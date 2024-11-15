@@ -9,12 +9,8 @@ const AwsIGW: React.FC<Flow3DNode> = ({ ...props }) => {
     <group position={[-5, 0, 0]} {...props}>
       <mesh rotation={[Math.PI, 0, 0]}>
         <cylinderGeometry args={[0.5, 0.5, 0.2]} />
-        <meshStandardMaterial attach="material-0" color="#F58536" />{" "}
-        {/* Side */}
-        {/* Bottom face material */}
-        <meshStandardMaterial attach="material-1" color="#F58536" />{" "}
-        {/* Bottom */}
-        {/* Top face material */}
+        <meshStandardMaterial attach="material-0" color="#F58536" />
+        <meshStandardMaterial attach="material-1" color="#F58536" />
         <meshStandardMaterial attach="material-2" map={igwTexture.map} />
       </mesh>
     </group>
