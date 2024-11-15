@@ -8,7 +8,7 @@ const VPC: React.FC<Flow3DNode> = ({ color, position, ...props }) => {
   const logoMaterial = new THREE.MeshStandardMaterial({ color: "#F6883A" });
   return (
     <group position={position}>
-      <group {...props} rotation={[0, Math.PI / 2, 0]}>
+      <group {...props} rotation={[0, -Math.PI / 2, 0]}>
         <mesh castShadow material={boundaryMaterial}>
           <boxGeometry args={[10, 0.25, 0.125]} />
         </mesh>
@@ -40,11 +40,11 @@ const VPC: React.FC<Flow3DNode> = ({ color, position, ...props }) => {
           <boxGeometry args={[3, 0.25, 0.125]} />
         </mesh>
       </group>
-      <group >
+      <group position={[-10,0,0]}>
         {[...Array(2)].map((_, i) => (
           <group
             scale={0.75}
-            position={[i * 0.5, 2.5, 4.75]}
+            position={[i * 0.5, 2.5, -4.75]}
           >
             <mesh
               castShadow

@@ -23,6 +23,7 @@ import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
 import { SiAmazondynamodb, SiAmazonec2, SiAmazonrds, SiAmazonroute53, SiAmazons3, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
+import { LiaArrowsAltSolid, LiaArrowsAltVSolid } from "react-icons/lia";
 
 const nodesData = [
   {
@@ -99,6 +100,11 @@ const nodesData = [
     id: "vpc",
     icon: <CiCloudOn className="text-4xl" />,
     label: "AWS VPC",
+  },
+  {
+    id: "aws-igw",
+    icon: <LiaArrowsAltSolid className="text-4xl" />,
+    label: "AWS IGW",
   },
 ];
 

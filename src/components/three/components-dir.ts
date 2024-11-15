@@ -16,6 +16,8 @@ import TextNode from "./nodes/text";
 import DynamoDB from "./nodes/aws/dynamo-db";
 import AwsRDS from "./nodes/aws/rds";
 import vpc from "./nodes/aws/vpc";
+import AwsIGW from "./nodes/aws/igw";
+
 
 
 export const nodeIdToFCDict = {
@@ -33,7 +35,8 @@ export const nodeIdToFCDict = {
   "ec2": AWSEC2,
   "dynamo-db": DynamoDB,
   "aws-rds": AwsRDS,
-  vpc: vpc
+  vpc: vpc,
+  "aws-igw": AwsIGW
 } as const;
 
 export const edgeIdToFCDict = {
