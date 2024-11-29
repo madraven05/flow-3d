@@ -6,15 +6,17 @@ import {
   useState,
 } from "react";
 
-export type EditModes = "view" | "select" | "move"
+export type EditModes = "view" | "select" | "move";
 
 interface ViewContextType {
-  freezeOrbitControl: boolean,
+  freezeOrbitControl: boolean;
   setFreezeOrbitControl: Dispatch<SetStateAction<boolean>>;
   componentGuuid: string | null;
   setComponentGuuid: Dispatch<SetStateAction<string | null>>;
   currEditMode: EditModes;
   setCurrEditMode: Dispatch<SetStateAction<EditModes>>;
+  isPresentationMode: boolean;
+  setIsPresentationMode: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ViewContext = createContext<ViewContextType | undefined>(
@@ -27,6 +29,7 @@ interface ViewProviderProps {
 
 export const ViewProvider: React.FC<ViewProviderProps> = ({ children }) => {
   const [freezeOrbitControl, setFreezeOrbitControl] = useState(false);
+  const [isPresentationMode, setIsPresentationMode] = useState(false);
   const [currEditMode, setCurrEditMode] = useState<EditModes>("view");
   const [componentGuuid, setComponentGuuid] = useState<string | null>(null);
 
@@ -38,7 +41,9 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({ children }) => {
         componentGuuid,
         setComponentGuuid,
         currEditMode,
-        setCurrEditMode
+        setCurrEditMode,
+        isPresentationMode,
+        setIsPresentationMode
       }}
     >
       {children}

@@ -40,3 +40,7 @@ h2 {
 h3 {
   @apply text-xl;
 }
+
+.fullscreen-container:fullscreen{
+  background-color: white;
+}

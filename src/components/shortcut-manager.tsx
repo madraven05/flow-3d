@@ -17,28 +17,30 @@ const ShortcutManager: React.FC<ShortcutManagerProps> = ({
 
   useEffect(() => {
     const handleShortcuts = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key == "\\") {
-        setOpenMenuManager(!openMenuManager);
-      }
+      if (!viewContext?.isPresentationMode) {
+        if (e.ctrlKey && e.key == "\\") {
+          setOpenMenuManager(!openMenuManager);
+        }
 
-      switch (e.key) {
-        case "v":
-          viewContext?.setCurrEditMode("view");
-          break;
-        case "s":
-          viewContext?.setCurrEditMode("select");
-          break;
-        case "m":
-          viewContext?.setCurrEditMode("move");
-          break;
-        case "Delete":
-          const guuid = viewContext?.componentGuuid;
-          if (guuid && viewContext.currEditMode === "select") {
-            dispatch(deleteNodeFromScene({ guuid: guuid }));
-          }
-          break;
-        default:
-          break;
+        switch (e.key) {
+          case "v":
+            viewContext?.setCurrEditMode("view");
+            break;
+          case "s":
+            viewContext?.setCurrEditMode("select");
+            break;
+          case "m":
+            viewContext?.setCurrEditMode("move");
+            break;
+          case "Delete":
+            const guuid = viewContext?.componentGuuid;
+            if (guuid && viewContext.currEditMode === "select") {
+              dispatch(deleteNodeFromScene({ guuid: guuid }));
+            }
+            break;
+          default:
+            break;
+        }
       }
     };
 
