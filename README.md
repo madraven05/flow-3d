@@ -2,6 +2,12 @@
 
 Flow3D is an interactive web-based tool for creating 3D cloud architecture diagrams. Built with React, Redux thunk, React Three Fiber, Framer Motion, and GSAP, Flow3D allows users to visualize, design, and edit cloud infrastructure in a 3D space with drag-and-drop functionalities and other editing tools.
 
+## 🎥 Demo
+<video controls width="600">
+  <source src="public/assets/flow3d-x.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## ✨ Features 
 
 - **Drag and Drop:** Easily move, place, and connect components in a 3D environment.

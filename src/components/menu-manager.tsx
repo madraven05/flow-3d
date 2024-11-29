@@ -162,18 +162,18 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         onClick={handleOpenMenu}
         className={`${
           openMenu ? "hidden" : ""
-        } z-10 fixed p-2 top-20 bg-primary left-10 text-3xl rounded-full`}
+        } z-10 fixed p-2 top-20 bg-primary left-5 text-3xl rounded-full`}
       >
         <IoMenuOutline />
       </MenuButton>
       <div
         className={`${
           openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
-        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-20 bottom-20 overflow-auto lg:top-20 flex flex-col  gap-3  py-10 px-6 bg-primary shadow-lg rounded-md`}
+        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-20 bottom-20 overflow-auto lg:top-32 flex flex-col  gap-3  py-10 px-6 bg-primary shadow-lg rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
-          className="fixed right-5 top-5 text-xl rounded-full p-2"
+          className="fixed right-3 top-5 text-xl rounded-full p-2"
         >
           <IoClose />
         </MenuButton>
