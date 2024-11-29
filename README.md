@@ -4,7 +4,7 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 
 ## 🎥 Demo
 <video controls width="600">
-  <source src="public/assets/flow3d-x.mp4" type="video/mp4">
+  <source src="/public/assets/flow-3d-hq.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
