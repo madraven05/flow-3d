@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
 import { Canvas } from "@react-three/fiber";
@@ -17,6 +17,7 @@ import { ViewContext } from "../components/context/view-context";
 import ShortcutManager from "../components/shortcut-manager";
 import VPC from "../components/three/nodes/aws/vpc";
 import AwsIGW from "../components/three/nodes/aws/igw";
+import LaserPointer from "../components/laser-pointer";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
@@ -24,10 +25,12 @@ const Flow3D: React.FC = () => {
 
   const [openMenuManager, setOpenMenuManager] = useState(false);
 
+  const canvasRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="mt-10 pt-5 min-h-screen w-full flex gap-2">
       {/* Components */}
-      <TopMenuTray />
+      <TopMenuTray canvasRef={canvasRef} />
       <MenuManager
         openMenu={openMenuManager}
         setOpenMenu={setOpenMenuManager}
@@ -40,14 +43,18 @@ const Flow3D: React.FC = () => {
       />
 
       {/* Canvas */}
-      <div className="-z-5 w-full shadow-md">
+      <div ref={canvasRef} className="fullscreen-container w-full shadow-md">
+        {viewContext?.isPresentationMode ? <LaserPointer /> : null}
         {scene.metadata.id ? (
-          <Canvas shadows>
+          <Canvas
+            style={{ zIndex: viewContext?.isPresentationMode ? -1 : 0 }}
+            shadows
+          >
             <OrthographicCamera
               makeDefault
               position={[10, 10, 10]}
               zoom={50}
-              near={0.1}
+              near={0}
               far={1000}
             />
             <ambientLight intensity={0.5} />
