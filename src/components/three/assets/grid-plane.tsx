@@ -69,19 +69,19 @@ const GridPlane: React.FC<GridPlaneProps> = ({
   });
 
   useEffect(() => {
-    if (viewContext?.searchBoundaryBox?.searching) {
+    if (viewContext?.findNodePos?.searching) {
       document.body.style.cursor = "pointer";
     } else {
       document.body.style.cursor = "auto";
     }
-  }, [viewContext?.searchBoundaryBox?.searching]);
+  }, [viewContext?.findNodePos?.searching]);
 
   const addNewNode = (pos: THREE.Vector3) => {
-    if (viewContext?.searchBoundaryBox?.searching) {
+    if (viewContext?.findNodePos?.searching) {
       console.log("adding node");
       const position: [number, number, number] = [pos.x, 0, pos.z];
 
-      const componentId = viewContext.searchBoundaryBox.componentId;
+      const componentId = viewContext.findNodePos.componentId;
       let newNode: Flow3DNodes;
       if (componentId === "text") {
         newNode = createFlow3DTextNode(
@@ -101,13 +101,13 @@ const GridPlane: React.FC<GridPlaneProps> = ({
       // add node to scene
       dispatch(addNodeToScene(newNode));
 
-      viewContext.setSearchBoundaryBox(null);
+      viewContext.setFindNodePos(null);
     }
   };
 
   const handlePointerOver = (event: ThreeEvent<MouseEvent>) => {
     const intersectPoint = event.intersections[0]?.point;
-    if (intersectPoint && viewContext?.searchBoundaryBox?.searching) {
+    if (intersectPoint && viewContext?.findNodePos?.searching) {
       addNewNode(intersectPoint);
     }
   };

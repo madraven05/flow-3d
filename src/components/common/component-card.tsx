@@ -72,7 +72,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
 
     // set the context for finding node position
     viewContext?.setCurrEditMode("view");
-    viewContext?.setSearchBoundaryBox({
+    viewContext?.setFindNodePos({
       componentId: componentId,
       searching: true
     });

@@ -7,7 +7,7 @@ import {
 } from "react";
 
 export type EditModes = "view" | "select" | "move";
-export type SearchBoundaryBoxMetadata = {
+export type FindNodePosMetadata = {
   componentId: string,
   searching: boolean,
 }
@@ -21,8 +21,8 @@ interface ViewContextType {
   setCurrEditMode: Dispatch<SetStateAction<EditModes>>;
   isPresentationMode: boolean;
   setIsPresentationMode: Dispatch<SetStateAction<boolean>>;
-  searchBoundaryBox: SearchBoundaryBoxMetadata | null;
-  setSearchBoundaryBox: Dispatch<SetStateAction<SearchBoundaryBoxMetadata | null>>;
+  findNodePos: FindNodePosMetadata | null;
+  setFindNodePos: Dispatch<SetStateAction<FindNodePosMetadata | null>>;
 }
 
 export const ViewContext = createContext<ViewContextType | undefined>(
@@ -36,7 +36,7 @@ interface ViewProviderProps {
 export const ViewProvider: React.FC<ViewProviderProps> = ({ children }) => {
   const [freezeOrbitControl, setFreezeOrbitControl] = useState(false);
   const [isPresentationMode, setIsPresentationMode] = useState(false);
-  const [searchBoundaryBox, setSearchBoundaryBox] = useState<SearchBoundaryBoxMetadata | null>(null);
+  const [findNodePos, setFindNodePos] = useState<FindNodePosMetadata | null>(null);
   const [currEditMode, setCurrEditMode] = useState<EditModes>("view");
   const [componentGuuid, setComponentGuuid] = useState<string | null>(null);
 
@@ -51,8 +51,8 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({ children }) => {
         setCurrEditMode,
         isPresentationMode,
         setIsPresentationMode,
-        searchBoundaryBox,
-        setSearchBoundaryBox
+        findNodePos,
+        setFindNodePos
       }}
     >
       {children}
