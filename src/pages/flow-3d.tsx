@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import MenuManager from "../components/menu-manager";
 import TopMenuTray from "../components/top-menu-tray";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import {
   edgeIdToFCDict,
@@ -18,6 +18,8 @@ import ShortcutManager from "../components/shortcut-manager";
 import VPC from "../components/three/nodes/aws/vpc";
 import AwsIGW from "../components/three/nodes/aws/igw";
 import LaserPointer from "../components/laser-pointer";
+import BoundaryBox from "../components/boundary-box";
+import CursorToCanvasPos from "../components/cursor-to-canvas-pos";
 
 const Flow3D: React.FC = () => {
   const { scene, nodes, edges } = useFlow3D();
@@ -45,9 +47,16 @@ const Flow3D: React.FC = () => {
       {/* Canvas */}
       <div ref={canvasRef} className="fullscreen-container w-full shadow-md">
         {viewContext?.isPresentationMode ? <LaserPointer /> : null}
+        {viewContext?.searchBoundaryBox?.searching ? <BoundaryBox/> : null}
         {scene.metadata.id ? (
           <Canvas
-            style={{ zIndex: viewContext?.isPresentationMode ? -1 : 0 }}
+            style={{
+              zIndex:
+                viewContext?.isPresentationMode ||
+                viewContext?.searchBoundaryBox?.searching
+                  ? -1
+                  : 0,
+            }}
             shadows
           >
             <OrthographicCamera
@@ -80,6 +89,7 @@ const Flow3D: React.FC = () => {
               return <EdgeNode key={idx} {...edgeProps} />;
             })}
             {!viewContext?.freezeOrbitControl ? <OrbitControls /> : null}
+            <CursorToCanvasPos/>
           </Canvas>
         ) : null}
       </div>

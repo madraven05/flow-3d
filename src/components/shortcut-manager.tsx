@@ -17,6 +17,7 @@ const ShortcutManager: React.FC<ShortcutManagerProps> = ({
 
   useEffect(() => {
     const handleShortcuts = (e: KeyboardEvent) => {
+      // if the view isn't in presentation mode
       if (!viewContext?.isPresentationMode) {
         if (e.ctrlKey && e.key == "\\") {
           setOpenMenuManager(!openMenuManager);

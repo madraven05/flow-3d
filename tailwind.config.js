@@ -7,6 +7,9 @@ export default {
         mulish: ["Mulish", "sans-serif"],
         "space-mono": ["Space Mono", "sans-serif"],
       },
+      transform: {
+        'xz-plane': 'rotateX(0deg) rotateY(90deg) rotateZ(45deg)',
+      },
       colors: {
         primary: "#edeae5",
         "green-light": "#9fedd7",

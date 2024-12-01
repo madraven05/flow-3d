@@ -184,7 +184,7 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         <Input placeholder="Search" onChange={handleSearchNodes} />
         <div className="flex flex-wrap gap-5 items-center justify-center">
           {showNodes.map((comp) => (
-            <ComponentCard key={comp.id} type="node" componentId={comp.id}>
+            <ComponentCard setOpenMenu={setOpenMenu} key={comp.id} type="node" componentId={comp.id}>
               {comp.icon}
               <p className="text-xs">{comp.label}</p>
             </ComponentCard>
