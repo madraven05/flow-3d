@@ -2,17 +2,10 @@ import React, {
   HTMLAttributes,
   ReactNode,
   useContext,
-  useEffect,
-  useState,
 } from "react";
 import { useAppDispatch } from "../hooks/use-app-dispatch";
 import {
-  createFlow3DNode,
-  createFlow3DTextNode,
-  Flow3DNodes,
 } from "../models/node";
-import { generateUUID } from "three/src/math/MathUtils.js";
-import { addNodeToScene } from "../redux/features/nodes/node-actions";
 import { useFlow3D } from "../hooks/use-flow3d";
 import {
   createFlow3DArrowEdge,
@@ -22,7 +15,6 @@ import {
 } from "../models/edge";
 import { addEdgeToScene } from "../redux/features/edges/edge-actions";
 import { ViewContext } from "../context/view-context";
-import { getXZDragPosition } from "../hocs/with-edit-node-options";
 
 interface ComponentCardProps extends HTMLAttributes<HTMLDivElement> {
   componentId: string;
@@ -41,22 +33,6 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
 
   const { scene } = useFlow3D();
   const viewContext = useContext(ViewContext);
-
-  const [isFindNodePos, setIsFindNodePos] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleCursorPosition = (e: MouseEvent) => {
-      if (isFindNodePos) {
-        setCursorPosition({ x: e.clientX, y: e.clientY });
-      }
-    };
-    document.addEventListener("mousemove", handleCursorPosition);
-
-    return () => {
-      document.removeEventListener("mousemove", handleCursorPosition);
-    };
-  }, []);
 
   const handleAddComponent = () => {
     if (type === "node") {
@@ -94,12 +70,14 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   const handleAddNode = () => {
     console.debug(`Adding component to scene: ${componentId}`);
 
-    // finding node position
+    // set the context for finding node position
     viewContext?.setCurrEditMode("view");
     viewContext?.setSearchBoundaryBox({
       componentId: componentId,
       searching: true
     });
+
+    // close menu
     setOpenMenu!(false);
   };
 
