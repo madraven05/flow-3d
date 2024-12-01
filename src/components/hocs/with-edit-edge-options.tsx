@@ -42,7 +42,7 @@ const withEditEdgeOptions = <P extends object>(
       if (viewContext?.currEditMode === "view") {
         viewContext.setFreezeOrbitControl(false);
         setShowLineOptions(false);
-        document.body.style.cursor = 'auto'
+        document.body.style.cursor = "auto";
       }
     }, [viewContext?.currEditMode]);
 
@@ -97,8 +97,9 @@ const withEditEdgeOptions = <P extends object>(
     };
 
     const handleOnPointerLeave = () => {
-      document.body.style.cursor = "auto";
-      //   setShowLineOptions(false);
+      if (viewContext?.currEditMode !== "view") {
+        document.body.style.cursor = "auto";
+      }
     };
     //#endregion
 
@@ -115,10 +116,7 @@ const withEditEdgeOptions = <P extends object>(
           0.5,
           newPosition[2]
         );
-        setDummyLinePoints([
-          [newPosition[0], 0, newPosition[2]],
-          lineEndPoint,
-        ]);
+        setDummyLinePoints([[newPosition[0], 0, newPosition[2]], lineEndPoint]);
         setLineStartPoint([newPosition[0], 0, newPosition[2]]);
       },
 
@@ -134,7 +132,7 @@ const withEditEdgeOptions = <P extends object>(
               update: update,
             })
           );
-          setDummyLinePoints([0,0,0]);
+          setDummyLinePoints([0, 0, 0]);
         }
       },
     });
@@ -166,10 +164,9 @@ const withEditEdgeOptions = <P extends object>(
               update: update,
             })
           );
-          setDummyLinePoints([0,0,0]);
+          setDummyLinePoints([0, 0, 0]);
         }
       },
-      
     });
     //#endregion
 

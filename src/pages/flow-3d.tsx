@@ -43,15 +43,21 @@ const Flow3D: React.FC = () => {
       {/* Canvas */}
       <div ref={canvasRef} className="fullscreen-container w-full shadow-md">
         {viewContext?.isPresentationMode ? <LaserPointer /> : null}
+
         {scene.metadata.id ? (
           <Canvas
-            style={{ zIndex: viewContext?.isPresentationMode ? -1 : 0 }}
+            style={{
+              zIndex:
+                viewContext?.isPresentationMode
+                  ? -1
+                  : 0,
+            }}
             shadows
           >
             <OrthographicCamera
               makeDefault
               position={[10, 10, 10]}
-              zoom={50}
+              zoom={35}
               near={0}
               far={1000}
             />
@@ -61,7 +67,7 @@ const Flow3D: React.FC = () => {
               castShadow
               receiveShadow
               position={[0, -0.5, 0]}
-              args={[25, 25]}
+              args={[35, 35]}
               rotation={[-Math.PI / 2, 0, 0]}
             />
             {/* Render nodes */}

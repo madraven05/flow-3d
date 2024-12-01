@@ -1,75 +1,84 @@
-import React, { HTMLAttributes, ReactNode } from "react";
+import React, {
+  HTMLAttributes,
+  ReactNode,
+  useContext,
+} from "react";
 import { useAppDispatch } from "../hooks/use-app-dispatch";
 import {
-  createFlow3DNode,
-  createFlow3DTextNode,
-  Flow3DNodes,
 } from "../models/node";
-import { generateUUID } from "three/src/math/MathUtils.js";
-import { addNodeToScene } from "../redux/features/nodes/node-actions";
 import { useFlow3D } from "../hooks/use-flow3d";
-import { createFlow3DArrowEdge, createFlow3DDashEdge, createFlow3DEdge, Flow3DEdges } from "../models/edge";
+import {
+  createFlow3DArrowEdge,
+  createFlow3DDashEdge,
+  createFlow3DEdge,
+  Flow3DEdges,
+} from "../models/edge";
 import { addEdgeToScene } from "../redux/features/edges/edge-actions";
+import { ViewContext } from "../context/view-context";
 
 interface ComponentCardProps extends HTMLAttributes<HTMLDivElement> {
   componentId: string;
   type: "node" | "edge";
   children: ReactNode;
+  setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const ComponentCard: React.FC<ComponentCardProps> = ({
   componentId,
   type,
   children,
+  setOpenMenu
 }) => {
   const dispatch = useAppDispatch();
 
   const { scene } = useFlow3D();
+  const viewContext = useContext(ViewContext);
 
   const handleAddComponent = () => {
-    if(type === "node") {
+    if (type === "node") {
       handleAddNode();
     } else {
       handleAddEdge();
     }
-  }
+  };
 
   const handleAddEdge = () => {
-    let newEdge: Flow3DEdges
+    let newEdge: Flow3DEdges;
     switch (componentId) {
       case "line-edge":
-        newEdge = createFlow3DEdge(componentId, scene.metadata.id as string)
+        newEdge = createFlow3DEdge(componentId, scene.metadata.id as string);
         break;
       case "dash-edge":
-        newEdge = createFlow3DDashEdge(componentId, scene.metadata.id as string);
+        newEdge = createFlow3DDashEdge(
+          componentId,
+          scene.metadata.id as string
+        );
         break;
       case "arrow-edge":
-        newEdge = createFlow3DArrowEdge(componentId, scene.metadata.id as string);
+        newEdge = createFlow3DArrowEdge(
+          componentId,
+          scene.metadata.id as string
+        );
         break;
       default:
-        newEdge = createFlow3DEdge(componentId, scene.metadata.id as string)
+        newEdge = createFlow3DEdge(componentId, scene.metadata.id as string);
         break;
     }
     dispatch(addEdgeToScene(newEdge));
-  }
+  };
 
   const handleAddNode = () => {
     console.debug(`Adding component to scene: ${componentId}`);
-    let newNode: Flow3DNodes;
-    if (componentId === "text") {
-      newNode = createFlow3DTextNode(
-        componentId,
-        generateUUID(),
-        scene.metadata.id as string
-      );
-    } else {
-      newNode = createFlow3DNode(
-        componentId,
-        generateUUID(),
-        scene.metadata.id as string
-      );
-    }
-    dispatch(addNodeToScene(newNode));
+
+    // set the context for finding node position
+    viewContext?.setCurrEditMode("view");
+    viewContext?.setFindNodePos({
+      componentId: componentId,
+      searching: true
+    });
+
+    // close menu
+    setOpenMenu!(false);
   };
 
   return (
