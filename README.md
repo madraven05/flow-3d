@@ -49,9 +49,12 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 ## 🛠️ Usage
 
 - After the server starts, navigate to http://localhost:5173
-- Begin dragging and dropping components to create your 3D architecture diagram
-- Use editing tools to connect, modify, or remove components
-- Save and export your diagrams for later use
+- Begin by creating a new canvas
+
+### Keyboard Shortcuts
+- `s` - For Select Mode (For opening node edit menu, and editing edges)
+- `m` - For Move mode (For dragging and dropping edges)
+- `v` - For view mode
 
 ## 🤝 Contribution
 
