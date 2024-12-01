@@ -25,7 +25,7 @@ type GLTFResult = GLTF & {
     Cube12_auv: THREE.MeshStandardMaterial
     Cube1_auv: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
+  // animations: GLTFAction[]
 }
 
 const Server: React.FC<Flow3DNode> = ({...props}) => {

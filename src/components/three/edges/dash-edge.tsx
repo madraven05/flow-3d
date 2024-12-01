@@ -1,5 +1,5 @@
 import React from "react";
-import { Flow3DDashEdge, Flow3DEdge } from "../../models/edge";
+import { Flow3DDashEdge } from "../../models/edge";
 import { Line } from "@react-three/drei";
 import withEditEdgeOptions from "../../hocs/with-edit-edge-options";
 

@@ -33,7 +33,7 @@ type GLTFResult = GLTF & {
     PhoneButton_Mat: THREE.MeshStandardMaterial;
     Camera_Light1: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
+  // animations: GLTFAction[];
 };
 
 const Mobile: React.FC<Flow3DNode> = ({ ...props }) => {

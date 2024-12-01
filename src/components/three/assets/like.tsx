@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.5.2 like.glb -t -o chat.tsx
 */
 
 import * as THREE from 'three'
-import React from 'react'
+// import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
@@ -16,7 +16,7 @@ type GLTFResult = GLTF & {
   materials: {
     ['Material.056']: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
+  // animations: GLTFAction[]
 }
 
 export function Like(props: JSX.IntrinsicElements['group']) {

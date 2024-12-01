@@ -3,7 +3,6 @@ import { HeroMobile } from "../../assets/hero-mobile";
 import { Chat } from "../../assets/chat";
 import { Like } from "../../assets/like";
 import { Love } from "../../assets/love";
-import { motion } from "framer-motion-3d";
 import * as THREE from "three";
 import gsap from "gsap";
 import with3DSectionAnimation from "../../../hocs/with-3d-section-animation";

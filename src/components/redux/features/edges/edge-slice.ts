@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Flow3DEdge, Flow3DEdges } from "../../../models/edge";
+import { Flow3DEdges } from "../../../models/edge";
 
 const initialState: Flow3DEdges[] = [];
 

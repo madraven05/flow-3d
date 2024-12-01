@@ -16,6 +16,7 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 - **Fast Development with Vite:** Lightning-fast development experience using React Vite for quick builds and optimized performance.
 - **Editing Tools:** Modify components, create connections, and adjust positions in real time.
 - **Responsive Design:** Works on various screen sizes and devices.
+- **Presentation Mode:** Present the canvas fullscreen with a laser pointer!
 
 ## 🔧 Technologies Used
 
@@ -35,7 +36,7 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
    git clone https://github.com/madraven05/flow-3d.git
 2. Navigate to the project directory:
     ```bash
-    cd flow3d
+    cd flow-3d
     ```
 3. Install dependencies:
     ```bash
@@ -49,9 +50,14 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 ## 🛠️ Usage
 
 - After the server starts, navigate to http://localhost:5173
-- Begin dragging and dropping components to create your 3D architecture diagram
-- Use editing tools to connect, modify, or remove components
-- Save and export your diagrams for later use
+- Begin by creating a new canvas
+- Selecting and moving the node can be done by clicking on the node
+- For moving edges, click on the edge in Select Mode
+
+### Keyboard Shortcuts
+- `s` - For Select Mode (For opening node edit menu, and editing edges)
+- `m` - For Move mode (For dragging and dropping edges)
+- `v` - For view mode
 
 ## 🤝 Contribution
 

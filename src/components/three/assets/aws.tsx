@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.5.2 aws.glb -t -o aws.tsx
 */
 
 import * as THREE from 'three'
-import React from 'react'
+// import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
@@ -18,7 +18,7 @@ type GLTFResult = GLTF & {
     blue: THREE.MeshStandardMaterial
     orange: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
+  // animations: GLTFAction[]
 }
 
 export function Aws(props: JSX.IntrinsicElements['group']) {

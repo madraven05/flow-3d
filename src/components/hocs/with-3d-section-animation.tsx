@@ -1,7 +1,6 @@
 import {
   MotionValue,
   useMotionValue,
-  useScroll,
   useTransform,
 } from "framer-motion";
 import React, { useRef } from "react";
@@ -17,8 +16,6 @@ const with3DSectionAnimation = <P extends object>(
   Model: React.ComponentType<P>
 ) => {
   return ({ direction, scrollRange = [0,1], ...props }: P & with3DSectionAnimationProps) => {
-    const { scrollYProgress } = useScroll();
-
     const ref = useRef<GroupProps>(null);
 
     const mouseX: MotionValue<number> = useMotionValue(0);
@@ -34,11 +31,6 @@ const with3DSectionAnimation = <P extends object>(
       [-1, 1],
       [-Math.PI / 16, Math.PI / 16]
     );
-    const scrollTranslateX = useTransform(
-        scrollYProgress,
-        scrollRange,
-        direction === 'left' ? [-15, 0] : [15,0]
-    )
 
     const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
       const { clientX, clientY } = e;

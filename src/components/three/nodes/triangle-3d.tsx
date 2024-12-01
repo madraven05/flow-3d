@@ -1,5 +1,5 @@
 import { GroupProps } from "@react-three/fiber";
-import React, { HTMLAttributes } from "react";
+import React from "react";
 import * as THREE from "three";
 
 interface Triangle3DProps extends GroupProps {

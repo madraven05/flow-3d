@@ -18,12 +18,11 @@ import ComponentCard from "./common/component-card";
 import Input from "./common/input";
 import { GiLaptop, GiServerRack } from "react-icons/gi";
 import { CiCloudOn, CiMobile3 } from "react-icons/ci";
-import { TbBucket } from "react-icons/tb";
 import { AiOutlineDash } from "react-icons/ai";
 import { BsDatabase } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { SiAmazondynamodb, SiAmazonec2, SiAmazonrds, SiAmazonroute53, SiAmazons3, SiAmazonsqs, SiAwslambda, SiNextdns } from "react-icons/si";
-import { LiaArrowsAltSolid, LiaArrowsAltVSolid } from "react-icons/lia";
+import { SiAmazondynamodb, SiAmazonec2, SiAmazonrds, SiAmazonroute53, SiAmazons3, SiAmazonsqs, SiAwslambda } from "react-icons/si";
+import { LiaArrowsAltSolid } from "react-icons/lia";
 
 const nodesData = [
   {
@@ -162,14 +161,14 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         onClick={handleOpenMenu}
         className={`${
           openMenu ? "hidden" : ""
-        } z-10 fixed p-2 top-20 bg-primary left-5 text-3xl rounded-full`}
+        } z-10 fixed p-2 top-10 bg-primary left-5 text-3xl rounded-full`}
       >
         <IoMenuOutline />
       </MenuButton>
       <div
         className={`${
           openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
-        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-20 bottom-20 overflow-auto lg:top-32 flex flex-col  gap-3  py-10 px-6 bg-primary shadow-lg rounded-md`}
+        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 fixed top-8 bottom-20 overflow-auto lg:top-14 flex flex-col  gap-3  py-10 px-6 bg-primary shadow-lg rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}

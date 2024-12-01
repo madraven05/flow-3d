@@ -4,7 +4,6 @@ Command: npx gltfjsx@6.5.2 sql.glb -t -o mysql.tsx
 */
 
 import * as THREE from 'three'
-import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 

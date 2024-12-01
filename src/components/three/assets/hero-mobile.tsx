@@ -8,7 +8,7 @@ Title: Low Poly Mobile Phone
 */
 
 import * as THREE from 'three'
-import React from 'react'
+// import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
@@ -31,7 +31,7 @@ type GLTFResult = GLTF & {
     PhoneButton_Mat: THREE.MeshStandardMaterial
     Camera_Light1: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
+  // animations: GLTFAction[]
 }
 
 export function HeroMobile(props: JSX.IntrinsicElements['group']) {

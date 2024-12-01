@@ -10,9 +10,7 @@ interface HomeSectionProps {
 }
 
 const HomeSection: React.FC<HomeSectionProps> = ({
-  idx = 0,
   canvas,
-  gradient,
   children,
   direction = "right",
 }) => {

@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import React from "react";
 import DevScene from "../scenes/dev-scene";
 
-const DevCanvas = () => {
+const DevCanvas:React.FC = () => {
   return (
     <Canvas camera={{ position: [0, 0, 20] }} shadows>
       <ambientLight intensity={1} />

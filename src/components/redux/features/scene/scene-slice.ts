@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Scene, SceneMetadata } from "../../../models/scene";
-import { Flow3DNode} from "../../../models/node";
+import { Scene } from "../../../models/scene";
 
 const initialState: Scene = {
   metadata: {
@@ -13,7 +12,7 @@ const sceneSlice = createSlice({
   initialState,
   reducers: {
     createNewSceneRequest(state) {
-      console.debug("Request received to create new scene");
+      console.debug("Request received to create new scene:", state.metadata.id);
     },
     createNewSceneSuccess(state, action: PayloadAction<Scene>) {
       state.metadata = action.payload.metadata;

@@ -1,6 +1,6 @@
 import { RoundedBox } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
-import  { useMemo } from "react";
+import { useMemo } from "react";
 import * as THREE from "three";
 
 const AwsBlock = () => {

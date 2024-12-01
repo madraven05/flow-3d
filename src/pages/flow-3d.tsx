@@ -26,7 +26,7 @@ const Flow3D: React.FC = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="mt-10 pt-5 min-h-screen w-full flex gap-2">
+    <div className="min-h-screen w-full flex gap-2">
       {/* Components */}
       <TopMenuTray canvasRef={canvasRef} />
       <MenuManager

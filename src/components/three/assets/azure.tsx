@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.5.2 microsoft.glb -t -o azure.tsx
 */
 
 import * as THREE from 'three'
-import React from 'react'
+// import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 

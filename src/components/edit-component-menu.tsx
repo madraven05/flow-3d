@@ -151,7 +151,7 @@ const EditComponentMenu = () => {
     <div
       className={`${
         openMenu ? "translate-x-0" : "translate-x-full opacity-0"
-      } flex flex-col gap-7 fixed transition duration-300 ease-in-out overflow-auto right-5 top-20 bottom-20 lg:right-10 lg:top-36 lg:bottom-20 rounded-md lg:w-72 z-10 backdrop-blur-md  py-7 px-4 shadow-lg bg-primary/50`}
+      } flex flex-col gap-7 fixed transition duration-300 ease-in-out overflow-auto right-5 top-8 bottom-20 lg:right-10 lg:top-10 lg:bottom-10 rounded-md lg:w-72 z-10 backdrop-blur-md  py-7 px-4 shadow-lg bg-primary/50`}
     >
       <MenuButton
         onClick={handleCloseMenu}

@@ -24,7 +24,7 @@ type GLTFResult = GLTF & {
 }
 
 const Bucket: React.FC<Flow3DNode> = ({...props}) => {
-  const { nodes, materials } = useGLTF('/bucket/scene.gltf') as GLTFResult
+  const { nodes } = useGLTF('/bucket/scene.gltf') as GLTFResult
   return (
     <group {...props} dispose={null}>
       <group position={[0,-0.5, 0]} scale={0.01}>
