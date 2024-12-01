@@ -16,6 +16,7 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 - **Fast Development with Vite:** Lightning-fast development experience using React Vite for quick builds and optimized performance.
 - **Editing Tools:** Modify components, create connections, and adjust positions in real time.
 - **Responsive Design:** Works on various screen sizes and devices.
+- **Presentation Mode:** Present the canvas fullscreen with a laser pointer!
 
 ## 🔧 Technologies Used
 
@@ -50,6 +51,8 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 
 - After the server starts, navigate to http://localhost:5173
 - Begin by creating a new canvas
+- Selecting and moving the node can be done by clicking on the node
+- For moving edges, click on the edge in Select Mode
 
 ### Keyboard Shortcuts
 - `s` - For Select Mode (For opening node edit menu, and editing edges)
