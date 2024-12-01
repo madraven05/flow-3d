@@ -35,7 +35,7 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
    git clone https://github.com/madraven05/flow-3d.git
 2. Navigate to the project directory:
     ```bash
-    cd flow3d
+    cd flow-3d
     ```
 3. Install dependencies:
     ```bash
