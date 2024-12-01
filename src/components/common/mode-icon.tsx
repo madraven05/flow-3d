@@ -2,7 +2,7 @@ import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { FaMousePointer } from "react-icons/fa";
 import { IoMove } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { EditModes, ViewContext } from "../context/view-context";
+import { ViewContext } from "../context/view-context";
 
 const modeDict: { [key: string]: ReactNode } = {
   view: <MdOutlineRemoveRedEye />,
@@ -10,7 +10,7 @@ const modeDict: { [key: string]: ReactNode } = {
   move: <IoMove />,
 };
 
-const ModeIcon = () => {
+const ModeIcon:React.FC = () => {
   const [currMode, setCurrMode] = useState<string>("view");
 
   const viewContext = useContext(ViewContext);

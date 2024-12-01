@@ -4,7 +4,6 @@ Command: npx gltfjsx@6.5.2 love.glb -t -o chat.tsx
 */
 
 import * as THREE from 'three'
-import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
@@ -17,7 +16,7 @@ type GLTFResult = GLTF & {
     ['Material.065']: THREE.MeshStandardMaterial
     ['Material.062']: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
+  // animations: GLTFAction[]
 }
 
 export function Love(props: JSX.IntrinsicElements['group']) {

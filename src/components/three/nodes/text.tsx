@@ -1,13 +1,11 @@
 import React, {
   ChangeEvent,
-  ReactNode,
   useContext,
-  useEffect,
   useState,
 } from "react";
-import { Flow3DNode, Flow3DNodes, Flow3DNodeTextNode } from "../../models/node";
-import { Html, Plane, Text } from "@react-three/drei";
-import { MeshPhongMaterial, MeshStandardMaterial } from "three";
+import { Flow3DNodes, Flow3DNodeTextNode } from "../../models/node";
+import { Html, Text } from "@react-three/drei";
+import { MeshPhongMaterial } from "three";
 import withEditNodeOptions from "../../hocs/with-edit-node-options";
 import { ViewContext } from "../../context/view-context";
 import { useAppDispatch } from "../../hooks/use-app-dispatch";

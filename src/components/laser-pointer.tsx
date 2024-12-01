@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 interface LaserPointerProps {
@@ -6,8 +6,6 @@ interface LaserPointerProps {
 }
 
 const LaserPointer: React.FC<LaserPointerProps> = ({ trailLength = 50 }) => {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-
   const pointerRefs = useRef<HTMLDivElement[]>([]);
 
   const pointerDivs = Array.from({ length: trailLength }, (_, i) => i + 1).map(
@@ -29,7 +27,6 @@ const LaserPointer: React.FC<LaserPointerProps> = ({ trailLength = 50 }) => {
     const handleMouseMove = (event: MouseEvent) => {
       document.body.style.cursor = "none";
       const { clientX: x, clientY: y } = event;
-      setCursorPosition({ x: x, y: y });
 
       pointerRefs.current.forEach((dot, i) => {
         gsap.to(dot, {

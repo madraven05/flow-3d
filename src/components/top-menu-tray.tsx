@@ -1,6 +1,6 @@
-import React, { forwardRef, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MenuButton from "./common/menu-button";
-import { BiMenu, BiPencil, BiRedo, BiSlideshow, BiUndo } from "react-icons/bi";
+import { BiMenu, BiRedo, BiSlideshow, BiUndo } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "./hooks/use-app-dispatch";
 import { createNewScene } from "./redux/features/scene/scene-actions";
 import { LuWallpaper } from "react-icons/lu";
@@ -69,7 +69,7 @@ const TopMenuTray: React.FC<TopMenuTrayProps> = ({ canvasRef }) => {
     }
   };
 
-  const [editModeData, setEditModeData] = useState<TrayDropdownData[]>([
+  const editModeData: TrayDropdownData[] = [
     {
       id: "select",
       icon: <FaMousePointer />,
@@ -84,7 +84,7 @@ const TopMenuTray: React.FC<TopMenuTrayProps> = ({ canvasRef }) => {
       onClick: handleMoveMode,
       active: false,
     },
-  ]);
+  ];
 
   return (
     <div className="z-10 fixed bottom-0 w-full rounded-none flex h-14 lg:top-20 lg:left-1/2 transform lg:-translate-x-1/2 backdrop-blur-xl lg:h-10 lg:w-1/2 bg-primary/50 gap-3 text-xl lg:rounded-full lg:flex justify-around px-10 items-center">

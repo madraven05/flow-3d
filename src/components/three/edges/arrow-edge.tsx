@@ -1,10 +1,9 @@
 import { Cone, Line } from "@react-three/drei";
-import React, { useMemo, useState } from "react";
-import { Flow3DArrowEdge, Flow3DEdge } from "../../models/edge";
+import React, { useMemo } from "react";
+import { Flow3DArrowEdge } from "../../models/edge";
 import { MeshPhongMaterial } from "three";
 import withEditEdgeOptions from "../../hocs/with-edit-edge-options";
 import * as THREE from "three";
-import { iridescence } from "three/webgpu";
 
 const ArrowEdge: React.FC<Flow3DArrowEdge> = ({
   guuid,
