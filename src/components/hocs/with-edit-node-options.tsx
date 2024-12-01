@@ -15,14 +15,14 @@ export const getXZDragPosition = (
   const xMovement = x / 80;
   const zMovement = y / 80;
 
-  return [xMovement + zMovement, 0, zMovement - xMovement]
+  return [xMovement + zMovement, 0, zMovement - xMovement];
 };
 
 /**
  * HOC that provides editing functionality to a Flow3DNode.
  * Functionalities - Edit menu on select, dragging on move
  * @param Model - Flow3DNode
- * @returns 
+ * @returns
  */
 const withEditNodeOptions = <P extends object>(
   Model: React.ComponentType<P>
@@ -60,7 +60,6 @@ const withEditNodeOptions = <P extends object>(
       const editMode = viewContext?.currEditMode;
       switch (editMode) {
         case "move":
-          
           break;
         case "select":
           break;
@@ -84,16 +83,16 @@ const withEditNodeOptions = <P extends object>(
           document.body.style.cursor = "move";
           setHovered(false);
           viewContext?.setFreezeOrbitControl(true);
-          const newPosition = getXZDragPosition(x,y);
+          const newPosition = getXZDragPosition(x, y);
 
-          if(lastOffset) setNodePosition(newPosition);
+          if (lastOffset) setNodePosition(newPosition);
         }
       },
       onDragEnd: () => {
         viewContext?.setFreezeOrbitControl(false);
-      }
+      },
     });
-    
+
     //#region Event handlers
     const handleOnHover = () => {
       if (viewContext?.currEditMode !== "view") {
@@ -103,8 +102,10 @@ const withEditNodeOptions = <P extends object>(
     };
 
     const handleLeaveHover = () => {
-      document.body.style.cursor = "auto";
-      setHovered(false);
+      if (viewContext?.currEditMode !== "view") {
+        document.body.style.cursor = "auto";
+        setHovered(false);
+      }
     };
 
     const handleEditNode = () => {

@@ -28,7 +28,7 @@ interface ComponentCardProps extends HTMLAttributes<HTMLDivElement> {
   componentId: string;
   type: "node" | "edge";
   children: ReactNode;
-  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>
+  setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const ComponentCard: React.FC<ComponentCardProps> = ({
@@ -100,7 +100,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       componentId: componentId,
       searching: true
     });
-    setOpenMenu(false);
+    setOpenMenu!(false);
   };
 
   return (

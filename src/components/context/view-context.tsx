@@ -10,7 +10,6 @@ export type EditModes = "view" | "select" | "move";
 export type SearchBoundaryBoxMetadata = {
   componentId: string,
   searching: boolean,
-  canvasPos?: [number, number, number]
 }
 
 interface ViewContextType {
