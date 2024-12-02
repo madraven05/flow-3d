@@ -87,7 +87,7 @@ const TopMenuTray: React.FC<TopMenuTrayProps> = ({ canvasRef }) => {
   ];
 
   return (
-    <div className="z-10 fixed bottom-0 w-full rounded-none flex h-14 lg:top-14 lg:left-0 lg:right-0 backdrop-blur-xl lg:h-10 lg:w-full bg-primary/50 gap-3 lg:gap-10 text-xl lg:flex justify-around lg:justify-start px-10 items-center">
+    <div className="z-10 fixed bottom-0 w-full rounded-none flex h-14 lg:top-16 lg:left-0 backdrop-blur-xl lg:h-10 lg:w-full bg-primary/50 gap-3 lg:gap-10 text-xl lg:flex justify-around lg:justify-start px-8 items-center">
       {/* create new scene */}
       <MenuButton
         popovertext="New Canvas"

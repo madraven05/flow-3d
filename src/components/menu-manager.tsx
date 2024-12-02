@@ -161,14 +161,14 @@ const MenuManager: React.FC<MenuManagerProps> = ({ openMenu, setOpenMenu }) => {
         onClick={handleOpenMenu}
         className={`${
           openMenu ? "hidden" : ""
-        } z-10 fixed p-2 top-20 lg:top-28 bg-primary/50 backdrop-blur-sm left-5 top:left-8 text-3xl rounded-full`}
+        } z-10 fixed p-2 top-20 lg:top-32 bg-primary/50 backdrop-blur-sm left-5 lg:left-5 text-3xl rounded-full`}
       >
         <IoMenuOutline />
       </MenuButton>
       <div
         className={`${
           openMenu ? "translate-x-0" : "-translate-x-full opacity-0"
-        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 md:w-72 fixed top-14 bottom-14 overflow-auto lg:top-24 lg:bottom-0 flex flex-col gap-3 py-10 px-6 bg-primary/50 backdrop-blur-sm shadow-lg rounded-md`}
+        } z-10 transition duration-300 ease-in-out left-0 w-60 lg:w-72 md:w-72 fixed top-14 bottom-14 overflow-auto lg:top-24 lg:mt-2 lg:bottom-0 flex flex-col gap-3 py-10 px-6 bg-primary/50 backdrop-blur-sm shadow-lg rounded-md`}
       >
         <MenuButton
           onClick={handleCloseMenu}
