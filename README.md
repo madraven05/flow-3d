@@ -9,13 +9,13 @@ Flow3D is an interactive web-based tool for creating 3D cloud architecture diagr
 ---
 ## Table of contents
 - [Flow3D](#flow3d)
-  * [🚀 Installation](#---installation)
-  * [🛠️ Usage](#----usage)
+  * [🚀 Installation](#installation)
+  * [🛠️ Usage](#usage)
     + [Keyboard Shortcuts](#keyboard-shortcuts)
-  * [✨ Features](#--features)
-  * [🔧 Technologies Used](#---technologies-used)
-  * [🤝 Contribution](#---contribution)
-  * [📧 Contact](#---contact)
+  * [✨ Features](#features)
+  * [🔧 Technologies Used](#technologies-used)
+  * [🤝 Contribution](#contribution)
+  * [📧 Contact](#contact)
 
 ## 🚀 Installation
 
