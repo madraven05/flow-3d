@@ -43,6 +43,7 @@ const VPC: React.FC<Flow3DNode> = ({ color, position, ...props }) => {
       <group position={[-10,0,0]}>
         {[...Array(2)].map((_, i) => (
           <group
+            key={i}
             scale={0.75}
             position={[i * 0.5, 2.5, -4.75]}
           >
