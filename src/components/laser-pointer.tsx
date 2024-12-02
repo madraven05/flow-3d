@@ -12,6 +12,7 @@ const LaserPointer: React.FC<LaserPointerProps> = ({ trailLength = 50 }) => {
     (_, idx) => {
       return (
         <div
+          key={idx}
           ref={(el) => el && (pointerRefs.current[idx] = el)}
           className="fixed circle w-3 h-3 rounded-full bg-red-700"
           style={{

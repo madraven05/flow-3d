@@ -151,11 +151,11 @@ const EditComponentMenu = () => {
     <div
       className={`${
         openMenu ? "translate-x-0" : "translate-x-full opacity-0"
-      } flex flex-col gap-7 fixed transition duration-300 ease-in-out overflow-auto right-5 top-8 bottom-20 lg:right-10 lg:top-10 lg:bottom-10 rounded-md lg:w-72 z-10 backdrop-blur-md  py-7 px-4 shadow-lg bg-primary/50`}
+      } flex flex-col gap-7 fixed transition duration-300 ease-in-out overflow-auto right-0 top-14 bottom-14 lg:right-0 lg:top-24 lg:bottom-0 rounded-md lg:w-72 z-10 backdrop-blur-md  py-7 px-5 shadow-lg bg-primary/50`}
     >
       <MenuButton
         onClick={handleCloseMenu}
-        className="fixed left-5 top-6 text-base text-gray-500 rounded-full bg-orange-800/10 backdrop-blur-md p-2"
+        className="fixed left-5 top-6 text-base text-gray-500 rounded-full backdrop-blur-md p-2"
       >
         <IoClose />
       </MenuButton>
